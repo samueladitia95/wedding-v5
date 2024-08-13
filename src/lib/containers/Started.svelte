@@ -15,7 +15,8 @@
 			IT ALL <i>started</i> FROM a Random <i>hello</i> from a stranger 12 Years ago AND THE REST IS JUST HISTORY
 		</p>
 	</div>
-	<div class="absolute bottom-0 flex flex-row overflow-scroll no-scrollbar">
+	<div class="absolute bottom-0 flex flex-row overflow-x-scroll no-scrollbar max-h-[300px]">
+        <!-- Need to work on image ratio -->
 		<img src={galleryImg1} />
 		<img src={galleryImg2} />
 		<img src={galleryImg3} />
