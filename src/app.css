@@ -6,3 +6,11 @@
     max-width: 500px;
     margin-inline: auto;
 }
+
+.no-scrollbar::-webkit-scrollbar{
+    display:none
+}
+.no-scrollbar {
+    -ms-overflow-style:none;
+    scrollbar-width:none;
+}
