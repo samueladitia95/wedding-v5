@@ -8,7 +8,6 @@
 	// $: computed1 = state1 * 2 // ? computed value
 </script>
 
-<h1 class="text-3xl font-bold underline text-blue-600">Hello world!</h1>
 <Rsvp/>
 <Attire/>
 <WeddingGift/>
