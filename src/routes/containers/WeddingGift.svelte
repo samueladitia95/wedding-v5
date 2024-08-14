@@ -19,7 +19,7 @@
 	}
 
 	onMount(() => {
-		updateBackground();background
+		updateBackground();
 		window.addEventListener('resize', updateBackground);
 
 		return () => {

@@ -1,20 +1,26 @@
 <script lang="ts">
-	import Rsvp from "$lib/containers/Rsvp.svelte";
-	import Attire from "$lib/containers/Attire.svelte";
-	import WeddingGift from "$lib/containers/WeddingGift.svelte"
-	import Started from "$lib/containers/Started.svelte";
-	import Intro from "$lib/containers/Intro.svelte";
-	import TogetherWith from "$lib/containers/TogetherWith.svelte";
-	import Wishes from "$lib/containers/Wishes.svelte";
+	import Rsvp from "./containers/Rsvp.svelte";
+	import Attire from "./containers/Attire.svelte";
+	import WeddingGift from "./containers/WeddingGift.svelte"
+	import Started from "./containers/Started.svelte";
+	import Intro from "./containers/Intro.svelte";
+	import TogetherWith from "./containers/TogetherWith.svelte";
+	import Wishes from "./containers/Wishes.svelte";
+	import Map from "./containers/Map.svelte";
+	import Details from "./containers/Details.svelte";
+	import type { PageData } from "./$types";
 	// const state1: string = 'state1'; // ? state
 	// let prop1: string; // ? required props
 	// let prop2: string = 'prop2'; // ? props with default value
 	// $: computed1 = state1 * 2 // ? computed value
+	export let data:PageData
 </script>
 
-<Intro/>
+<Intro data={data}/>
 <Started/>
 <TogetherWith/>
+<Map/>
+<Details/>
 <div class="bg-mj-sand flex flex-col justify-center lg:flex-row">
 	<Rsvp/>
 	<Wishes/>

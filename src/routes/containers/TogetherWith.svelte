@@ -15,7 +15,7 @@
 	<div
 		class="h-screen px-[24px] py-[112px] flex flex-col text-white text-center justify-center gap-[20px] md:gap-[35px] uppercase lg:hidden max-w-[1600px]"
 	>
-		<p class="text-[14px] md:text-[16px] px-[70px] md:px-[280px]">{togetherWith}</p>
+		<p class="text-[14px] md:text-[16px] px-[70px] md:px-[280px] font-gordita">{togetherWith}</p>
 
 		<div class="flex items-center justify-center rounded-[150px]">
 			<img class="h-[300px] rounded-[150px]" src={imageMobile} />
@@ -42,7 +42,7 @@
 		<div class="grid grid-flow-col grid-cols-10 items-center xl:px-[100px]">
 			<div class="flex flex-col gap-[20px] col-span-4">
 				<p class="text-[40px]">{groom}</p>
-				<p class="text-[14px]">{groomFamily}</p>
+				<p class="text-sm font-gordita">{groomFamily}</p>
 			</div>
 			<div class="flex items-center justify-center rounded-[150px col-span-2">
 				<img class="h-[300px] rounded-[150px] object-cover" src={imageMobile} />
@@ -51,10 +51,10 @@
 				<p class="text-[40px]">
 					{bride}
 				</p>
-				<p class="text-[14px]">{brideFamily}</p>
+				<p class="text-sm font-gordita">{brideFamily}</p>
 			</div>
 		</div>
-		<p class="text-[16px]">{invite}</p>
+		<p class="font-gordita">{invite}</p>
 	</div>
 </div>
 

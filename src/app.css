@@ -10,7 +10,25 @@
 .no-scrollbar::-webkit-scrollbar{
     display:none
 }
+
 .no-scrollbar {
     -ms-overflow-style:none;
     scrollbar-width:none;
+}
+
+@layer base {
+	@font-face {
+		font-family: "gordita";
+		src: local("gordita"), url("/fonts/Gordita/Gordita-Regular.otf");
+		font-weight: 400;
+		font-display: swap;
+		font-style: normal;
+	}
+	@font-face {
+		font-family: "gordita";
+		src: local("gordita"), url("/fonts/Gordita/Gordita-Bold.otf");
+		font-weight: 700;
+		font-display: swap;
+		font-style: normal;
+	}
 }
