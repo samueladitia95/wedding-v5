@@ -9,18 +9,18 @@
 	export let isLast: boolean;
 </script>
 
-<div class="flex flex-col items-center justify-center">
+<div class="flex flex-col items-center justify-center font-gordita">
 	<img src={image} />
-	<p>{name}</p>
+	<p class="pt-8 pb-2">{name}</p>
 	{#if condition}
-		<p>{condition}</p>
+		<p class="text-sm font-timesNewRoman">{condition}</p>
 	{/if}
 	{#if condition2}
-		<p>{condition2}</p>
+		<p class="text-sm font-timesNewRoman font-italic">{condition2}</p>
 	{/if}
-	<p>{time}</p>
-	<p>{location}</p>
+	<p class="py-6">{time}</p>
+	<p class="text-xs">{location}</p>
     {#if !isLast}
-	<img src={divider} />
+	<img src={divider} class="mt-16"/>
     {/if}
 </div>

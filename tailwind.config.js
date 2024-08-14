@@ -22,7 +22,8 @@ export default {
 				"mj-error": "#D81515",
 			},
 			fontFamily: {
-				gordita: ["gordita", ...defaultTheme.fontFamily.sans] 
+				gordita: ["gordita", ...defaultTheme.fontFamily.sans],
+				timesNewRoman: ["timesNewRoman", ...defaultTheme.fontFamily.sans] 
 			}
 		}
 	},

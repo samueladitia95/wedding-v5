@@ -39,12 +39,14 @@
     ]
 </script>
 
-<div class="bg-mj-dark-brown min-h-screen">
-    <div class="px-6 py-28 flex flex-col justify-center items-center text-white">
-        <p class="text-3xl">{title}</p>
-        {#each items as item, index}
-        <DetailsCard name={item.name} condition={item.condition} condition2={item.condition2} time={item.time} location={item.location} image={item.image} isLast={index === items.length - 1}/>
-        {/each}
+<div class="bg-mj-dark-brown min-h-screen flex justify-center">
+    <div class="px-6 py-28 flex flex-col justify-center items-center text-white max-w-[1600px]">
+        <p class="text-3xl pb-10">{title}</p>
+        <div class="flex flex-col gap-16">
+            {#each items as item, index}
+            <DetailsCard name={item.name} condition={item.condition} condition2={item.condition2} time={item.time} location={item.location} image={item.image} isLast={index === items.length - 1}/>
+            {/each}
+        </div>
     </div>
 
 </div>
