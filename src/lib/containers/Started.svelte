@@ -9,18 +9,18 @@
 		'IT ALL  started  FROM a Random  hello from a stranger 12 Years  ago AND THE REST IS JUST HISTORY';
 </script>
 
-<div class="relative bg-mj-beige text-mj-black h-screen">
-	<div class="px-[24px] py-[40px]">
+<div class="relative bg-mj-beige text-mj-black h-screen flex justify-center" >
+	<div class="px-[24px] py-[40px] max-w-[1600px]">
 		<p class="text-[32px] md:text-[48px] md:text-[56px] xl:text-[72px]">
 			IT ALL <i>started</i> FROM a Random <i>hello</i> from a stranger 12 Years ago AND THE REST IS JUST HISTORY
 		</p>
 	</div>
-	<div class="absolute bottom-0 flex flex-row overflow-x-scroll no-scrollbar max-h-[300px]">
+	<div class="max-w-[1600px] absolute bottom-0 flex flex-row overflow-x-scroll no-scrollbar max-h-[300px]">
         <!-- Need to work on image ratio -->
-		<img src={galleryImg1} />
-		<img src={galleryImg2} />
-		<img src={galleryImg3} />
-		<img src={galleryImg4} />
-		<img src={galleryImg5} />
+		<img class="max-h-[300px] w-auto" src={galleryImg1} />
+		<img class="max-h-[300px] w-auto" src={galleryImg2} />
+		<img class="max-h-[300px] w-auto" src={galleryImg3} />
+		<img class="max-h-[300px] w-auto" src={galleryImg4} />
+		<img class="max-h-[300px] w-auto" src={galleryImg5} />
 	</div>
 </div>

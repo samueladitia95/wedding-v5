@@ -9,6 +9,7 @@ export default {
 				"mj-black": "#272727",
 				"mj-gray": "#4C4C4C",
 				"mj-beige": "#E8E5DE",
+				"mj-dark-sand": "#988B7D",
 				"mj-sand": "#B6ACA0",
 				"mj-sand2": "#A5998A",
 				"mj-brown": "#574735",

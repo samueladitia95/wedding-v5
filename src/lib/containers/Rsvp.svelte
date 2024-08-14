@@ -22,10 +22,10 @@
 </script>
 
 {#if !endScreen}
-	<div class="bg-mj-sand2 min-h-screen py-[80px] px-[24px]">
-		<div class="flex flex-col text-white">
+	<div class="bg-mj-sand2 min-h-screen py-[80px] px-[24px] flex lg:justify-center">
+		<div class="flex flex-col text-white lg:max-w-[800px] w-full">
 			<h1 class="text-[32px] pb-[24px]">RSVP & WISHES</h1>
-			<div class="flex flex-col gap-[20px] pb-[40px] text-[12px]">
+			<div class="flex flex-col gap-[20px] pb-[40px] text-[12px] md:text-[14px]">
 				<p>{rsvp_intro}</p>
 				<p class="text-[14px]">{rsvp_due_date}</p>
 				<p>{rsvp_wishes}</p>
@@ -37,7 +37,7 @@
 					<Input name="email" label="Email" />
 
 					<div class="py-[12px]">
-						<div class="font-editor-hand text-ca-blue md:text-xl flex">
+						<div class="font-editor-hand text-ca-blue text-[14px] flex">
 							Will you be attending the wedding? &nbsp
 							<p class="text-mj-error max-w-[8px] -translate-y-1">{@html star}</p>
 						</div>
@@ -67,7 +67,7 @@
 					/>
 
 					<div class="py-[12px]">
-						<div class="font-editor-hand text-ca-blue md:text-xl flex">
+						<div class="font-editor-hand text-ca-blue text-[14px] flex">
 							Please Select Your Main Dish &nbsp
 							<p class="text-mj-error max-w-[8px] -translate-y-1">{@html star}</p>
 						</div>
@@ -78,7 +78,7 @@
 									type="radio"
 									class="w-5 h-5 appearance-none border-2 border-white/20 rounded-full box-content checked:bg-white checked:ring-4 checked:ring-mj-sand checked:ring-inset"
 								/>
-								<div class="text-ca-blue font-editor-hand">Chicken</div>
+								<div class="text-ca-blue font-editor-hand">Beef</div>
 							</div>
 							<div class="flex gap-2 items-center">
 								<input
@@ -86,7 +86,7 @@
 									type="radio"
 									class="w-5 h-5 appearance-none border-2 border-white/20 rounded-full box-content checked:bg-white checked:ring-4 checked:ring-mj-sand checked:ring-inset"
 								/>
-								<div class="text-ca-blue font-editor-hand">Meat</div>
+								<div class="text-ca-blue font-editor-hand">Chicken</div>
 							</div>
 						</div>
 					</div>
@@ -123,7 +123,7 @@
 {:else}
 	<div class="bg-mj-sand2 min-h-screen py-[80px] px-[24px] items-center flex flex-col justify-center">
 		<div
-			class="flex flex-col text-center text-white gap-3"
+			class="flex flex-col text-center text-white gap-3 max-w-[800px]"
 		>
 			<h1 class="text-[40px] px-[20px]">THANK YOU FOR YOUR RSVP AND WISHES!</h1>
 			<p class="text-[12px] px-[32px]">WE WILL CONTACT YOU FOR MORE INFORMATION AND DETAILS</p>

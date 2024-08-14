@@ -3,30 +3,27 @@
 	import bgMobile from '$lib/assets/gift-mobile.jpg';
 	import bgTablet from '$lib/assets/gift-tablet.jpg';
 	import bgDesktop from '$lib/assets/gift-desktop.jpg';
-	// const bgMobile = 'https://drive.google.com/thumbnail?id=1mIR3qwOm1ifNibQD7GaNWboryWBmsPxZ';
-	// const bgTablet = 'https://drive.google.com/thumbnail?id=1CsfXUZWpRYOdbSRxISQdGp8J2qaFU8_F';
-	// const bgDesktop = 'https://drive.google.com/thumbnail?id=1OlbNVuVpW8ASdssOd3nfPhIupSuHJLCM';
 
-	let backgroundUrl = bgMobile; // Default to mobile
+	let backgroundUrl = bgMobile;
 
 	function updateBackground() {
 		const width = window.innerWidth;
 
 		if (width >= 1024) {
-			backgroundUrl = bgDesktop; // Desktop
+			backgroundUrl = bgDesktop;
 		} else if (width >= 768) {
-			backgroundUrl = bgTablet; // Tablet
+			backgroundUrl = bgTablet;
 		} else {
-			backgroundUrl = bgMobile; // Mobile
+			backgroundUrl = bgMobile;
 		}
 	}
 
 	onMount(() => {
-		updateBackground(); // Set initial background
-		window.addEventListener('resize', updateBackground); // Update on resize
+		updateBackground();background
+		window.addEventListener('resize', updateBackground);
 
 		return () => {
-			window.removeEventListener('resize', updateBackground); // Clean up
+			window.removeEventListener('resize', updateBackground);
 		};
 	});
 </script>
