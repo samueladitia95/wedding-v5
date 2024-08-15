@@ -16,6 +16,12 @@
     scrollbar-width:none;
 }
 
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+}
+
 @layer base {
 	@font-face {
 		font-family: "gordita";
@@ -28,6 +34,13 @@
 		font-family: "gordita";
 		src: local("gordita"), url("/fonts/Gordita/Gordita-Bold.otf");
 		font-weight: 700;
+		font-display: swap;
+		font-style: normal;
+	}
+	@font-face {
+		font-family: "timesNewRoman";
+		src: local("timesNewRoman"), url("/fonts/Times New Roman/Times New Roman.ttf");
+		font-weight: 400;
 		font-display: swap;
 		font-style: normal;
 	}

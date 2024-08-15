@@ -9,6 +9,7 @@
 	import Map from "./containers/Map.svelte";
 	import Details from "./containers/Details.svelte";
 	import type { PageData } from "./$types";
+	import QnA from "./containers/QnA.svelte";
 	// const state1: string = 'state1'; // ? state
 	// let prop1: string; // ? required props
 	// let prop2: string = 'prop2'; // ? props with default value
@@ -26,6 +27,7 @@
 	<Wishes/>
 </div>
 <Attire/>
+<QnA data={data}/>
 <WeddingGift/>
 <div class="px-[24px] py-[16px] flex text-center justify-center bg-[#594F47] text-white text-[12px]">
 	<p>Website Invitation by Another Chapter</p>
