@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { PageData } from '../$types';
-	import { pb } from '$lib/pocketbase';
 	import QnACard from '$lib/components/QnACard.svelte';
+	import { pb } from '$lib';
 
 	const questions = [
 		{

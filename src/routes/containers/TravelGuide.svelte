@@ -1,14 +1,14 @@
 <script lang="ts">
 	import type { PageData } from '../$types';
-	import { pb } from '$lib/pocketbase';
 	export let data: PageData;
 
 	import flightIcon from '$lib/assets/icons/Flight Icon.svg';
 	import hotelIcon from '$lib/assets/icons/Hotel Room Icon.svg';
 	import TravelGuideCard from '$lib/components/TravelGuideCard.svelte';
 	import GetLocationButton from '$lib/components/GetLocationButton.svelte';
-    import divider from "$lib/assets/icons/Shape Divider.svg"
-    import shuttleIcon from "$lib/assets/icons/Shuttle Icon.svg"
+	import divider from '$lib/assets/icons/Shape Divider.svg';
+	import shuttleIcon from '$lib/assets/icons/Shuttle Icon.svg';
+	import { pb } from '$lib';
 
 	const guides = [
 		{
@@ -22,16 +22,16 @@
 			detail:
 				'THE GARCIA UBUD\n\nFamily : 2 NIGHTs (OCTOBER 1 - OCTOBER 3, 2024)\nFriends : 1 Night (October 2 - October 3, 2024)\n*Breakfast included',
 			conditional1: 'family & friends',
-            conditional2: "family",
-            detail2:
-				'Maya Ubud\n2 NIGHTs (OCTOBER 1 - OCTOBER 3, 2024)\n*Breakfast included',
+			conditional2: 'family',
+			detail2: 'Maya Ubud\n2 NIGHTs (OCTOBER 1 - OCTOBER 3, 2024)\n*Breakfast included'
 		},
-        {
-            image: shuttleIcon,
-            name: "COMPLIMENTARY SHUTTLE",
-            conditional: "Tea Pai - 11:00 AM",
-            detail: "THE GARCIA UBUD - MAYA UBUD - THE GARCIA UBUD\n\n(PLEASE BE READY AT THE HOTEL LOBBY BY 11:00 AM (WITA), OUR WEDDING ASSISTANT WILL GUIDE YOU)"
-        }
+		{
+			image: shuttleIcon,
+			name: 'COMPLIMENTARY SHUTTLE',
+			conditional: 'Tea Pai - 11:00 AM',
+			detail:
+				'THE GARCIA UBUD - MAYA UBUD - THE GARCIA UBUD\n\n(PLEASE BE READY AT THE HOTEL LOBBY BY 11:00 AM (WITA), OUR WEDDING ASSISTANT WILL GUIDE YOU)'
+		}
 	];
 </script>
 
@@ -66,8 +66,8 @@
 						<GetLocationButton />
 					</div>
 				</div>
-                <img src={divider}/>
-                <div class="flex flex-col gap-4">
+				<img src={divider} />
+				<div class="flex flex-col gap-4">
 					<p class="text-xs font-bold">{guides[1].conditional2}</p>
 					<p class="text-xs whitespace-pre-line leading-loose">{guides[1].detail2}</p>
 					<div>
@@ -85,8 +85,8 @@
 						<GetLocationButton />
 					</div>
 				</div>
-                <img src={divider}/>
-                <div class="flex flex-col gap-4">
+				<img src={divider} />
+				<div class="flex flex-col gap-4">
 					<p class="text-xs font-bold">{guides[1].conditional2}</p>
 					<p class="text-xs whitespace-pre-line leading-loose">{guides[1].detail2}</p>
 					<div>
@@ -95,6 +95,5 @@
 				</div>
 			</div>
 		</div>
-        
 	</div>
 </div>

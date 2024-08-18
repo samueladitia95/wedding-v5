@@ -1,7 +1,7 @@
 <script lang="ts">
+	import { pb } from '$lib';
 	import PlayButton from '$lib/components/PlayButton.svelte';
 	import type { PageData } from '../$types';
-	import { pb } from '$lib/pocketbase';
 
 	const introMainText =
 		'Distance is not for the fearful, it is for the bold. It’s for those who are willing to spend a lot time  alone in exchange for a little time with the one they love.';

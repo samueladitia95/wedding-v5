@@ -1,4 +1,4 @@
-import { pb } from '$lib/pocketbase';
+import { pb } from '$lib';
 import type { PageLoad } from './$types';
 
 export const load: PageLoad = async () => {
