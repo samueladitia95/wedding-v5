@@ -19,6 +19,7 @@ export default {
 				"mj-light-brown2": "#A18168",
 				"mj-medium-brown": "#7B6954",
 				"mj-dark-brown": "#594F47",
+				"mj-dark-brown2": "#2E1F0F",
 				"mj-error": "#D81515",
 			},
 			fontFamily: {

@@ -11,6 +11,7 @@
 	import TravelGuide from "./containers/TravelGuide.svelte";
 	import type { PageData } from "./$types";
 	import QnA from "./containers/QnA.svelte";
+	import SaveTheDate from "./containers/SaveTheDate.svelte";
 	// const state1: string = 'state1'; // ? state
 	// let prop1: string; // ? required props
 	// let prop2: string = 'prop2'; // ? props with default value
@@ -21,6 +22,7 @@
 <Intro data={data}/>
 <Started/>
 <TogetherWith/>
+<SaveTheDate/>
 <Map/>
 <Details/>
 <TravelGuide data={data}/>

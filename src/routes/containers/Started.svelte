@@ -18,7 +18,6 @@
 		</p>
 	</div>
 	<div class="max-w-[1600px] absolute bottom-0 flex flex-row overflow-x-scroll no-scrollbar max-h-[300px]">
-	<!-- Need to work on image ratio -->
 	 <Marquee >
 		<img class="max-h-[300px] w-auto" src={galleryImg1} />
 		<img class="max-h-[300px] w-auto" src={galleryImg2} />
