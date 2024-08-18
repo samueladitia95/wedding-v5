@@ -22,12 +22,12 @@
 </script>
 
 {#if !endScreen}
-	<div class="bg-mj-sand2 min-h-screen py-[80px] px-[24px] flex lg:justify-center">
+	<div class="bg-mj-sand2 min-h-screen py-[80px] px-[24px] flex lg:justify-center w-full font-gordita">
 		<div class="flex flex-col text-white lg:max-w-[800px] w-full">
-			<h1 class="text-[32px] pb-[24px]">RSVP & WISHES</h1>
-			<div class="flex flex-col gap-[20px] pb-[40px] text-[12px] md:text-[14px]">
+			<h1 class="text-[32px] pb-[24px] tracking-widest">RSVP & WISHES</h1>
+			<div class="flex flex-col gap-[20px] pb-[40px] text-[12px] md:text-[14px] tracking-wide">
 				<p>{rsvp_intro}</p>
-				<p class="text-[14px]">{rsvp_due_date}</p>
+				<p class="text-[14px] tracking-normal font-timesNewRoman italic">{rsvp_due_date}</p>
 				<p>{rsvp_wishes}</p>
 			</div>
 			<form>
@@ -104,13 +104,13 @@
 						/>
 						{#if !isLoading}
 							<button
-								class="w-full bg-mj-button-disabled text-mj-button-disabled-text py-[16px] rounded-[45px] hover:bg-white hover:text-mj-black transition-all duration-300"
+								class="w-full bg-mj-button-disabled text-mj-button-disabled-text py-[16px] rounded-[45px] hover:bg-white hover:text-mj-black transition-all duration-300 tracking-widest"
 								on:click={toggleLoading}>SUBMIT RSVP & WISHES</button
 							>
 							<!-- emulating button styling -->
 						{:else}
 							<button
-								class="w-full bg-mj-button-disabled text-mj-button-disabled-text py-[16px] rounded-[45px] hover:bg-white hover:text-mj-black transition-all duration-300 flex text-center justify-center gap-2"
+								class="w-full bg-mj-button-disabled text-mj-button-disabled-text py-[16px] rounded-[45px] hover:bg-white hover:text-mj-black transition-all duration-300 flex text-center justify-center gap-2 tracking-widest"
 								on:click={toggleLoading}
 								><span class="rotate">{@html loading}</span>LOADING...</button
 							>

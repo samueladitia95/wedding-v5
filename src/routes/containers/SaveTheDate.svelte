@@ -1,10 +1,11 @@
 <script lang="ts">
-	import AddToCalendarButton from '$lib/components/AddToCalendarButton.svelte';
+	import PrimaryButton  from '$lib/components/PrimaryButton.svelte';
 	import { onMount } from 'svelte';
 
 	const title = 'save the date';
 	const day = 'wednesday';
 	const date = '2nd of October, 2024';
+    const buttonText = "Add To Calendar"
 
 	let months = 0;
 	let days = 0;
@@ -37,14 +38,14 @@
 	});
 </script>
 
-<div class="wrapper bg-mj-beige justify-center">
+<div class="wrapper bg-mj-beige justify-center tracking-widest">
 	<!-- butuh font light -->
 	<div
 		class="!max-w-[1600px] self-center flex flex-col gap-16 justify-center items-center w-full min-h-screen uppercase text-center font-gordita text-mj-black px-6 py-28"
 	>
 		<!-- Ini harusnya ivyOra light (font weight: 300) -->
 		<div class="flex flex-col gap-8 items-center">
-			<p class="font-timesNewRoman text-3xl">{title}</p>
+			<p class="font-timesNewRoman text-3xl tracking-[0.4rem]">{title}</p>
 			<div class="min-h-14 w-0 border-l border-mj-gray"></div>
 			<div class="flex flex-col gap-4">
 				<p class="text-xl">
@@ -75,7 +76,7 @@
 			</div>
 		</div>
 		<div>
-			<AddToCalendarButton />
+			<PrimaryButton buttonText={buttonText}  />
 		</div>
 	</div>
 </div>

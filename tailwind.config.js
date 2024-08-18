@@ -24,7 +24,8 @@ export default {
 			},
 			fontFamily: {
 				gordita: ["gordita", ...defaultTheme.fontFamily.sans],
-				timesNewRoman: ["timesNewRoman", ...defaultTheme.fontFamily.sans] 
+				timesNewRoman: ["timesNewRoman", ...defaultTheme.fontFamily.sans], 
+				aboreto: ["aboreto", ...defaultTheme.fontFamily.sans], 
       },
 			container: {
 				center: true,

@@ -7,8 +7,8 @@
 	import hotelIcon from '$lib/assets/icons/Hotel Room Icon.svg';
 	import TravelGuideCard from '$lib/components/TravelGuideCard.svelte';
 	import GetLocationButton from '$lib/components/GetLocationButton.svelte';
-    import divider from "$lib/assets/icons/Shape Divider.svg"
-    import shuttleIcon from "$lib/assets/icons/Shuttle Icon.svg"
+	import divider from '$lib/assets/icons/Shape Divider.svg';
+	import shuttleIcon from '$lib/assets/icons/Shuttle Icon.svg';
 
 	const guides = [
 		{
@@ -19,32 +19,42 @@
 		{
 			image: hotelIcon,
 			name: 'COMPLIMENTARY ACCOMODATION',
-			detail:
-				'THE GARCIA UBUD\n\nFamily : 2 NIGHTs (OCTOBER 1 - OCTOBER 3, 2024)\nFriends : 1 Night (October 2 - October 3, 2024)\n*Breakfast included',
+			detail1: 'Maya Ubud\n2 NIGHTs (OCTOBER 1 - OCTOBER 3, 2024)\n*Breakfast included',
 			conditional1: 'family & friends',
-            conditional2: "family",
-            detail2:
-				'Maya Ubud\n2 NIGHTs (OCTOBER 1 - OCTOBER 3, 2024)\n*Breakfast included',
+			conditional2: 'family',
+			detail2: 'Maya Ubud\n2 NIGHTs (OCTOBER 1 - OCTOBER 3, 2024)\n*Breakfast included'
 		},
-        {
-            image: shuttleIcon,
-            name: "COMPLIMENTARY SHUTTLE",
-            conditional: "Tea Pai - 11:00 AM",
-            detail: "THE GARCIA UBUD - MAYA UBUD - THE GARCIA UBUD\n\n(PLEASE BE READY AT THE HOTEL LOBBY BY 11:00 AM (WITA), OUR WEDDING ASSISTANT WILL GUIDE YOU)"
-        }
+		{
+			image: shuttleIcon,
+			name: 'COMPLIMENTARY SHUTTLE',
+			conditional1: 'Tea Pai - 11:00 AM',
+			detail1:
+				'THE GARCIA UBUD - MAYA UBUD - THE GARCIA UBUD\n\n(PLEASE BE READY AT THE HOTEL LOBBY BY 11:00 AM\n (WITA), OUR WEDDING ASSISTANT WILL GUIDE YOU)',
+			conditional2: 'Holy matrimony - 15:00 PM',
+			detail2:
+				'THE GARCIA UBUD - MAYA UBUD - THE GARCIA UBUD\n\n(PLEASE BE READY AT THE HOTEL LOBBY BY 15:00 PM\n(WITA), OUR WEDDING ASSISTANT WILL GUIDE YOU)'
+		}
 	];
 </script>
 
 <div class="wrapper relative overflow-hidden">
 	<img
 		src={pb.files.getUrl(data.main, data.main.travel_guide_mobile)}
-		class="absolute left-0 top-0"
+		class="absolute md:hidden left-0 top-0 min-h-full min-w-full"
+	/>
+	<img
+		src={pb.files.getUrl(data.main, data.main.travel_guide_tablet)}
+		class="absolute hidden md:block lg:hidden left-0 top-0 min-h-full min-w-full"
+	/>
+	<img
+		src={pb.files.getUrl(data.main, data.main.travel_guide_desktop)}
+		class="absolute hidden lg:block left-0 top-0 min-h-full min-w-full"
 	/>
 	<div
-		class="flex flex-col px-6 py-16 z-20 text-white font-gordita text-center w-full justify-center gap-14"
+		class="flex flex-col px-6 py-16 z-20 text-white font-gordita text-center w-full justify-center gap-14 tracking-wide"
 	>
 		<div>
-			<p class="pb-6 text-3xl font-timesNewRoman">TRAVEL GUIDE</p>
+			<p class="pb-6 text-3xl font-timesNewRoman tracking-widest">TRAVEL GUIDE</p>
 			<p class="text-xs">FOR OUTSIDE BALI ONLY</p>
 		</div>
 		<div class="flex flex-col gap-14">
@@ -53,48 +63,45 @@
             {/each} -->
 			<div class="flex flex-col justify-center items-center uppercase">
 				<img class="pb-8" src={guides[0].image} />
-				<p class="pb-6">{guides[0].name}</p>
-				<p class="text-xs whitespace-pre-line leading-loose">{guides[0].detail}</p>
+				<p class="pb-6 tracking-wider">{guides[0].name}</p>
+				<p class="text-xs whitespace-pre-line leading-loose max-w-[300px]">{guides[0].detail}</p>
 			</div>
 			<div class="flex flex-col justify-center items-center uppercase gap-10">
 				<img src={guides[1].image} />
-				<p>{guides[1].name}</p>
-				<div class="flex flex-col gap-4">
-					<p class="text-xs font-bold">{guides[1].conditional1}</p>
-					<p class="text-xs whitespace-pre-line leading-loose">{guides[1].detail}</p>
-					<div>
-						<GetLocationButton />
+				<p class="tracking-wider">{guides[1].name}</p>
+				<div class="flex flex-col lg:flex-row items-center uppercase gap-10">
+					<div class="flex flex-col lg:justify-evenly lg:h-36 gap-4">
+						<p class="text-xs font-bold">{guides[1].conditional1}</p>
+						<p class="text-xs whitespace-pre-line leading-loose">{guides[1].detail1}</p>
+						<div class="lg:hidden">
+							<GetLocationButton />
+						</div>
 					</div>
-				</div>
-                <img src={divider}/>
-                <div class="flex flex-col gap-4">
-					<p class="text-xs font-bold">{guides[1].conditional2}</p>
-					<p class="text-xs whitespace-pre-line leading-loose">{guides[1].detail2}</p>
-					<div>
-						<GetLocationButton />
+					<img src={divider} />
+					<div class="flex flex-col lg:justify-evenly lg:h-36 gap-4">
+						<p class="text-xs font-bold">{guides[1].conditional2}</p>
+						<p class="text-xs whitespace-pre-line leading-loose">{guides[1].detail2}</p>
+						<div class="lg:hidden">
+							<GetLocationButton />
+						</div>
 					</div>
 				</div>
 			</div>
 			<div class="flex flex-col justify-center items-center uppercase gap-10">
-				<img src={guides[1].image} />
-				<p>{guides[1].name}</p>
-				<div class="flex flex-col gap-4">
-					<p class="text-xs font-bold">{guides[1].conditional1}</p>
-					<p class="text-xs whitespace-pre-line leading-loose">{guides[1].detail}</p>
-					<div>
-						<GetLocationButton />
+				<img src={guides[2].image} />
+				<p class="tracking-wider">{guides[2].name}</p>
+				<div class="flex flex-col lg:flex-row items-center uppercase gap-10">
+					<div class="flex flex-col gap-4">
+						<p class="text-xs font-bold">{guides[2].conditional1}</p>
+						<p class="text-xs whitespace-pre-line leading-loose">{guides[2].detail1}</p>
 					</div>
-				</div>
-                <img src={divider}/>
-                <div class="flex flex-col gap-4">
-					<p class="text-xs font-bold">{guides[1].conditional2}</p>
-					<p class="text-xs whitespace-pre-line leading-loose">{guides[1].detail2}</p>
-					<div>
-						<GetLocationButton />
+					<img src={divider} />
+					<div class="flex flex-col gap-4">
+						<p class="text-xs font-bold">{guides[2].conditional2}</p>
+						<p class="text-xs whitespace-pre-line leading-loose">{guides[2].detail2}</p>
 					</div>
 				</div>
 			</div>
 		</div>
-        
 	</div>
 </div>

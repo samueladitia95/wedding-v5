@@ -11,14 +11,14 @@
 
 <div class="flex flex-col items-center justify-center font-gordita">
 	<img src={image} />
-	<p class="pt-8 pb-2">{name}</p>
+	<p class="pt-8 pb-2 tracking-wider">{name}</p>
 	{#if condition}
 		<p class="text-sm font-timesNewRoman">{condition}</p>
 	{/if}
 	{#if condition2}
 		<p class="text-sm font-timesNewRoman font-italic">{condition2}</p>
 	{/if}
-	<p class="py-6">{time}</p>
+	<p class="py-6 tracking-wider">{time}</p>
 	<p class="text-xs">{location}</p>
     {#if !isLast}
 	<img src={divider} class="mt-16"/>

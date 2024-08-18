@@ -12,13 +12,13 @@
 </script>
 
 <div class={`flex flex-row gap-4 ${isLast? '':'border-b'} border-b-white/20 ${selected? 'pb-14': 'pb-2' }`}>
-	<p>0{index+1}.</p>
+	<p class="tracking-widest">0{index+1}.</p>
 	<div class="text-xs leading-6 w-full">
-		<p class="pb-4 text-base flex justify-between hover:cursor-pointer" on:click={()=>{selected=!selected}}>
+		<p class="pb-4 text-base flex justify-between hover:cursor-pointer tracking-widest" on:click={()=>{selected=!selected}}>
 			{question} <span class={`${selected?'rotate-0':'rotate-180'}`}>{@html arrowDown}</span>
 		</p>
         {#if selected}
-		<div>
+		<div class="tracking-wider">
 			<p>
 				{answer}
 			</p>
