@@ -5,8 +5,9 @@
 
 	const introMainText =
 		'Distance is not for the fearful, it is for the bold. It’s for those who are willing to spend a lot time  alone in exchange for a little time with the one they love.';
+	
 	export let data:PageData
-
+	
 </script>
 
 <div class="bg-mj-black min-h-screen flex justify-center relative">
