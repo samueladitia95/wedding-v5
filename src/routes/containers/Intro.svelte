@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { pb } from '$lib';
+	import { pb } from '$lib/pocketbase';
 	import PlayButton from '$lib/components/PlayButton.svelte';
 	import type { PageData } from '../$types';
 

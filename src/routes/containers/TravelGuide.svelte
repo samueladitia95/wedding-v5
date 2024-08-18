@@ -8,7 +8,7 @@
 	import GetLocationButton from '$lib/components/GetLocationButton.svelte';
 	import divider from '$lib/assets/icons/Shape Divider.svg';
 	import shuttleIcon from '$lib/assets/icons/Shuttle Icon.svg';
-	import { pb } from '$lib';
+	import { pb } from '$lib/pocketbase';
 
 	const guides = [
 		{
