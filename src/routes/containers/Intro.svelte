@@ -23,16 +23,18 @@
 <div class="bg-mj-black min-h-screen flex justify-center relative">
 	<div class="min-h-screen flex justify-center relative max-w-[1600px]">
 		<img
-			class="absolute top-0 left-0 md:hidden h-screen w-screen w-auto object-cover"
+			class="absolute top-0 left-0 md:hidden h-screen w-screen object-cover"
 			src={pb.files.getUrl(data.main, data.main.main_image_mobile)}
 		/>
 		<img
 			class="h-screen w-screen absolute top-0 left-0 hidden md:block lg:hidden object-cover"
 			src={pb.files.getUrl(data.main, data.main.main_image_tablet)}
+			alt="tablet-img"
 		/>
 		<img
 			class="h-screen w-screen absolute top-0 left-0 hidden lg:block object-cover"
 			src={pb.files.getUrl(data.main, data.main.main_image_desktop)}
+			alt="desktop-img"
 		/>
 		<div class="z-20 w-screen flex flex-col justify-between py-[72px] px-[62px] md:px-44 xl:px-96 font-aboreto leading-loose">
 			<p class="text-white text-[16px] md:text-[24px] lg:text-[20px] text-center">

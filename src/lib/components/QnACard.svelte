@@ -3,12 +3,12 @@
 	import { string } from 'zod';
 
 	let selected: boolean = false;
-    export let question: string;
-    export let answer: string;
-    export let conditional: string;
-    export let conditional2: string;
-    export let isLast: boolean;
-    export let index:number;
+	export let question: string;
+	export let answer: string;
+	export let conditional: string | undefined;
+	export let conditional2: string | undefined;
+	export let isLast: boolean;
+	export let index: number;
 </script>
 
 <div class={`flex flex-row gap-4 ${isLast? '':'border-b'} border-b-white/20 ${selected? 'pb-14': 'pb-2' }`}>

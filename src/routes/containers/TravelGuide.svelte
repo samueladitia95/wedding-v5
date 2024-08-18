@@ -1,6 +1,5 @@
 <script lang="ts">
 	import type { PageData } from '../$types';
-	import { pb } from '$lib/pocketbase';
 	export let data: PageData;
 
 	import flightIcon from '$lib/assets/icons/Flight Icon.svg';
@@ -27,12 +26,18 @@
 		{
 			image: shuttleIcon,
 			name: 'COMPLIMENTARY SHUTTLE',
+<<<<<<< HEAD
 			conditional1: 'Tea Pai - 11:00 AM',
 			detail1:
 				'THE GARCIA UBUD - MAYA UBUD - THE GARCIA UBUD\n\n(PLEASE BE READY AT THE HOTEL LOBBY BY 11:00 AM\n (WITA), OUR WEDDING ASSISTANT WILL GUIDE YOU)',
 			conditional2: 'Holy matrimony - 15:00 PM',
 			detail2:
 				'THE GARCIA UBUD - MAYA UBUD - THE GARCIA UBUD\n\n(PLEASE BE READY AT THE HOTEL LOBBY BY 15:00 PM\n(WITA), OUR WEDDING ASSISTANT WILL GUIDE YOU)'
+=======
+			conditional: 'Tea Pai - 11:00 AM',
+			detail:
+				'THE GARCIA UBUD - MAYA UBUD - THE GARCIA UBUD\n\n(PLEASE BE READY AT THE HOTEL LOBBY BY 11:00 AM (WITA), OUR WEDDING ASSISTANT WILL GUIDE YOU)'
+>>>>>>> 6e0af16258708cbe4b8b463c347b25a7bd9b715e
 		}
 	];
 </script>
@@ -77,6 +82,7 @@
 							<GetLocationButton />
 						</div>
 					</div>
+<<<<<<< HEAD
 					<img src={divider} />
 					<div class="flex flex-col lg:justify-evenly lg:h-36 gap-4">
 						<p class="text-xs font-bold">{guides[1].conditional2}</p>
@@ -84,6 +90,15 @@
 						<div class="lg:hidden">
 							<GetLocationButton />
 						</div>
+=======
+				</div>
+				<img src={divider} />
+				<div class="flex flex-col gap-4">
+					<p class="text-xs font-bold">{guides[1].conditional2}</p>
+					<p class="text-xs whitespace-pre-line leading-loose">{guides[1].detail2}</p>
+					<div>
+						<GetLocationButton />
+>>>>>>> 6e0af16258708cbe4b8b463c347b25a7bd9b715e
 					</div>
 				</div>
 			</div>
@@ -95,10 +110,20 @@
 						<p class="text-xs font-bold">{guides[2].conditional1}</p>
 						<p class="text-xs whitespace-pre-line leading-loose">{guides[2].detail1}</p>
 					</div>
+<<<<<<< HEAD
 					<img src={divider} />
 					<div class="flex flex-col gap-4">
 						<p class="text-xs font-bold">{guides[2].conditional2}</p>
 						<p class="text-xs whitespace-pre-line leading-loose">{guides[2].detail2}</p>
+=======
+				</div>
+				<img src={divider} />
+				<div class="flex flex-col gap-4">
+					<p class="text-xs font-bold">{guides[1].conditional2}</p>
+					<p class="text-xs whitespace-pre-line leading-loose">{guides[1].detail2}</p>
+					<div>
+						<GetLocationButton />
+>>>>>>> 6e0af16258708cbe4b8b463c347b25a7bd9b715e
 					</div>
 				</div>
 			</div>
