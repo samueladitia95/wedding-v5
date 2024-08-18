@@ -8,6 +8,7 @@
 	import Wishes from "./containers/Wishes.svelte";
 	import Map from "./containers/Map.svelte";
 	import Details from "./containers/Details.svelte";
+	import TravelGuide from "./containers/TravelGuide.svelte";
 	import type { PageData } from "./$types";
 	import QnA from "./containers/QnA.svelte";
 	// const state1: string = 'state1'; // ? state
@@ -22,6 +23,7 @@
 <TogetherWith/>
 <Map/>
 <Details/>
+<TravelGuide data={data}/>
 <div class="bg-mj-sand flex flex-col justify-center lg:flex-row">
 	<Rsvp/>
 	<Wishes/>

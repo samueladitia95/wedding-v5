@@ -1,5 +1,6 @@
 <script lang="ts">
 	import map from '$lib/assets/map.svg';
+	import GetLocationButton from '$lib/components/GetLocationButton.svelte';
 	const theVenue = "THE VENUE"
 	const hotel = "MAYA UBUD RESORT"
 
@@ -14,8 +15,6 @@
 			<p>{hotel}</p>
 			<p class="text-sm">{address}</p>
 		</div>
-		<button class="bg-white hover:bg-[#DADADA] text-mj-black px-6 py-4 text-sm rounded-[45px] text-nowrap">
-			GET LOCATION
-		</button>
+		<GetLocationButton/>
 	</div>
 </div>

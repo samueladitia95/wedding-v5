@@ -40,7 +40,7 @@
 </script>
 
 <div class="wrapper bg-mj-black relative flex !flex-col text-white justify-center">
-    <div class="relative min-h-48 min-w-full flex 2xl:justify-center">
+    <div class="relative min-h-48 min-w-full flex justify-center 2xl:min-w-2 2xl:self-center max-w-[1600px]">
         <img class="object-cover md:hidden" src={pb.files.getUrl(data.main, data.main.qna_mobile)} />
         <img class="object-cover hidden md:block lg:hidden" src={pb.files.getUrl(data.main, data.main.qna_tablet)} />
         <img class="object-cover hidden lg:block" src={pb.files.getUrl(data.main, data.main.qna_desktop)} />
