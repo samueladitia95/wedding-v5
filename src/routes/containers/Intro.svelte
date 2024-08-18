@@ -6,12 +6,12 @@
 	import { onMount } from 'svelte';
 	
 
-	let isLoading = false;
-	// onMount(() => {
-    //     setTimeout(() => {
-    //         isLoading = false;
-    //     }, 2000); // 2 seconds delay
-    // });
+	let isLoading = true;
+	onMount(() => {
+        setTimeout(() => {
+            isLoading = false;
+        }, 1200); // 2 seconds delay
+    });
 	const introLoadingText1 = 'The Wedding Of';
 	const introLoadingText2 = 'Marco & Jessica';
 
