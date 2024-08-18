@@ -1,13 +1,12 @@
 <script lang="ts">
 	import PlayButton from '$lib/components/PlayButton.svelte';
 	import type { PageData } from '../$types';
-	import { pb } from "$lib/pocketbase";
+	import { pb } from '$lib/pocketbase';
 
 	const introMainText =
 		'Distance is not for the fearful, it is for the bold. It’s for those who are willing to spend a lot time  alone in exchange for a little time with the one they love.';
-	
-	export let data:PageData
-	
+
+	export let data: PageData;
 </script>
 
 <div class="bg-mj-black min-h-screen flex justify-center relative">
@@ -15,7 +14,8 @@
 		<img
 			class="absolute top-0 left-0 md:hidden h-screen w-screen object-cover"
 			src={pb.files.getUrl(data.main, data.main.main_image_mobile)}
-			alt="mobile-img"/>
+			alt="mobile-img"
+		/>
 		<img
 			class="h-screen w-screen absolute top-0 left-0 hidden md:block lg:hidden object-cover"
 			src={pb.files.getUrl(data.main, data.main.main_image_tablet)}
