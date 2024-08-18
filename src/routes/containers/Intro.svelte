@@ -1,11 +1,4 @@
 <script lang="ts">
-	import introImageMobile from '$lib/assets/intro-images/Intro Image - Mobile.jpg';
-	import introImageTablet from '$lib/assets/intro-images/Intro Image - Tablet.jpg';
-	import introImageDesktop from '$lib/assets/intro-images/Intro Image - Desktop.jpg';
-	import playButton from '$lib/assets/buttons/Play-enabled.svg';
-	import playButtonHovered from '$lib/assets/buttons/Play-hovered.svg';
-	import pauseButton from '$lib/assets/buttons/Pause-enable.svg';
-	import pauseButtonHovered from '$lib/assets/buttons/Pause-hovered.svg';
 	import PlayButton from '$lib/components/PlayButton.svelte';
 	import type { PageData } from '../$types';
 	import { pb } from "$lib/pocketbase";
