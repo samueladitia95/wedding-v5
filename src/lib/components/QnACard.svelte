@@ -1,6 +1,5 @@
 <script lang="ts">
 	import arrowDown from '$lib/assets/icons/arrow-down.svg?raw';
-	import { string } from 'zod';
 
 	let selected: boolean = false;
 	export let question: string;

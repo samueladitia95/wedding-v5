@@ -15,7 +15,7 @@
 	<div
 		class="min-h-screen px-6 py-28 flex flex-col text-white text-center justify-center w-full gap-10 uppercase lg:hidden max-w-[1600px]"
 	>
-		<p class="text-sm md:text-base px-[70px] md:px-60 lg:px-72 font-ivora leading-loose">
+		<p class="text-sm md:text-base px-[70px] md:px-60 lg:px-72 font-gordita leading-loose">
 			{togetherWith}
 		</p>
 
@@ -48,14 +48,25 @@
 
 	<!-- LARGE DISPLAY -->
 	<div
-		class="h-screen px-[24px] py-[112px] flex-col text-white text-center justify-center gap-[96px] uppercase hidden lg:flex max-w-[1600px]"
+		class="h-screen 
+			px-[24px] 
+			py-[112px] 
+			flex-col 
+			text-white 
+			text-center 
+			justify-center 
+			gap-[96px] 
+			uppercase 
+			hidden 
+			lg:flex 
+			max-w-[1600px]"
 	>
-		<p class="text-base/loose max-w-[230px] self-center font-gordita text-center">{togetherWith}</p>
+		<p class="text-base max-w-[300px] self-center font-gordita tracking-[0.3em] leading-9 text-center">{togetherWith}</p>
 
-		<div class="grid grid-flow-col grid-cols-12 items-center xl:px-[100px] gap-6">
-			<div class="flex flex-col gap-[20px] col-span-4">
-				<p class="text-[40px] font-ivora font-light">{groom}</p>
-				<p class="text-sm font-gordita">{groomFamily}</p>
+		<div class="grid grid-flow-col grid-cols-12 items-center xl:px-24 gap-6">
+			<div class="flex flex-col gap-5 col-span-4">
+				<p class="text-4xl font-ivora font-light tracking-widest">{groom}</p>
+				<p class="text-sm font-gordita tracking-widest">{groomFamily}</p>
 			</div>
 			<div class="flex items-center justify-center col-span-4">
 				<img
