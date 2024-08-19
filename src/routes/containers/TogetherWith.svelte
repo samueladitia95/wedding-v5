@@ -22,7 +22,7 @@
 <div
 	class="bg-mj-black wrapper tracking-widest"
 	use:inview={{
-		rootMargin: '50px',
+		rootMargin: '-100px',
 		unobserveOnEnter: true
 	}}
 	on:inview_change={handleChange}

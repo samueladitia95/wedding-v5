@@ -16,7 +16,7 @@
 <div
 	class="relative bg-mj-beige text-mj-black min-h-screen flex justify-center md:tracking-wider lg:tracking-[0.4rem]"
 	use:inview={{
-		rootMargin: '50px',
+		rootMargin: '-100px',
 		unobserveOnEnter: true
 	}}
 	on:inview_change={handleChange}

@@ -46,7 +46,7 @@
 <div
 	class="wrapper bg-mj-beige justify-center tracking-widest"
 	use:inview={{
-		rootMargin: '50px',
+		rootMargin: '-100px',
 		unobserveOnEnter: true
 	}}
 	on:inview_change={handleChange}
