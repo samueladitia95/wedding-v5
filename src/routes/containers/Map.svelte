@@ -14,11 +14,11 @@
 	<div
 		class="px-6 py-28 flex flex-col justify-center text-center gap-10 text-white font-ivora items-center max-w-[1600px]"
 	>
-		<p class="text-3xl tracking-widest font-gordita">{theVenue}</p>
+		<p class="text-3xl md:!text-[40px] tracking-widest font-ivora font-light">{theVenue}</p>
 		<img src={pb.files.getUrl(data.main, data.main.main_map)} alt="map" />
 		<div class="flex flex-col justify-center gap-4 max-w-[350px] font-gordita">
-			<p class="tracking-widest">{hotel}</p>
-			<p class="text-sm tracking-wider">{address}</p>
+			<p class="tracking-widest md:!text-lg">{hotel}</p>
+			<p class="text-xs/loose tracking-wider md:!text-base/loose">{address}</p>
 		</div>
 		<GetLocationButton />
 	</div>
