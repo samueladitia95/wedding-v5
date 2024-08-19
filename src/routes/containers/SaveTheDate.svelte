@@ -16,8 +16,8 @@
 	let countdowns = [
 		{ type: 'Month', value: 0 },
 		{ type: 'Day', value: 0 },
-		{ type: 'Minute', value: 0 },
-		{ type: 'Second', value: 0 }
+		{ type: 'Hour', value: 0 },
+		{ type: 'Minute', value: 0 }
 	];
 	const eventCalenderLink = 'https://calendar.app.google/oKe4F6P8PWjFqfnKA';
 
@@ -29,8 +29,8 @@
 			countdowns = [
 				{ type: 'Month', value: duration.months() },
 				{ type: 'Day', value: Math.floor(duration.days()) },
-				{ type: 'Minute', value: duration.minutes() },
-				{ type: 'Second', value: duration.seconds() }
+				{ type: 'Hour', value: duration.hours() },
+				{ type: 'Minute', value: duration.minutes() }
 			];
 		}, 1000);
 	});
