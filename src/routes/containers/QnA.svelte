@@ -47,15 +47,40 @@
 </script>
 
 <div class="wrapper bg-mj-black relative flex !flex-col text-white justify-center">
-    <div class="relative min-h-48 min-w-full flex justify-center 2xl:min-w-2 2xl:self-center max-w-[1600px]">
-        <img class="object-cover md:hidden" src={pb.files.getUrl(data.main, data.main.qna_mobile)} />
-        <img class="object-cover hidden md:block lg:hidden" src={pb.files.getUrl(data.main, data.main.qna_tablet)} />
-        <img class="object-cover hidden lg:block" src={pb.files.getUrl(data.main, data.main.qna_desktop)} />
-        <p class="absolute bottom-0 left-0 max-w-48 text-3xl md:text-4xl lg:text-5xl md:text-nowrap pl-4 pb-4 md:pl-8 md:pb-8 lg:pl-12 lg:pb-12 2xl:left-48  font-timesNewRoman tracking-widest">QUESTIONS & ANSWERS</p>
-    </div>
-    <div class="px-6 md:px-8 lg:px-16 py-14 font-gordita flex flex-col gap-14 max-w-[1600px] 2xl:self-center 2xl:w-full">
-        {#each questions as item, index}
-        <QnACard question={item.question} answer={item.answer} conditional={item.conditional} conditional2={item.conditional2} index={index} isLast={index === questions.length - 1}/>
-        {/each}
-    </div>
+	<div class="relative min-h-48 min-w-full flex justify-center 2xl:min-w-2 2xl:self-center">
+		<img
+			class="object-cover md:hidden"
+			src={pb.files.getUrl(data.main, data.main.qna_mobile)}
+			alt="1"
+		/>
+		<img
+			class="object-cover hidden md:block lg:hidden"
+			src={pb.files.getUrl(data.main, data.main.qna_tablet)}
+			alt="2"
+		/>
+		<img
+			class="object-cover hidden lg:block lg:w-full lg:max-h-[570px]"
+			src={pb.files.getUrl(data.main, data.main.qna_desktop)}
+			alt="3"
+		/>
+		<p
+			class="absolute bottom-0 left-0 max-w-48 text-3xl md:text-4xl lg:text-5xl md:text-nowrap pl-4 pb-4 md:pl-8 md:pb-8 lg:pl-12 lg:pb-12 2xl:left-48 font-timesNewRoman tracking-widest"
+		>
+			QUESTIONS & ANSWERS
+		</p>
+	</div>
+	<div
+		class="px-6 md:px-8 lg:px-16 py-14 font-gordita flex flex-col gap-14 max-w-[1600px] 2xl:self-center 2xl:w-full"
+	>
+		{#each questions as item, index}
+			<QnACard
+				question={item.question}
+				answer={item.answer}
+				conditional={item.conditional}
+				conditional2={item.conditional2}
+				{index}
+				isLast={index === questions.length - 1}
+			/>
+		{/each}
+	</div>
 </div>
