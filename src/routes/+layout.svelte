@@ -32,12 +32,12 @@
 	}
 </script>
 
-<div class="relative w-screen h-screen">
+<div>
 	<slot />
-	<div>
+	<div class="w-screen h-screen z-[1000]">
 		<div class="fixed left-8 bottom-4">
 			<button
-				class="cursor-pointer z-[1000]"
+				class="cursor-pointer"
 				on:click={togglePlay}
 				on:mouseenter={() => (isHovered = true)}
 				on:mouseleave={() => (isHovered = false)}
