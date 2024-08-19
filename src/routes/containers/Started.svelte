@@ -26,7 +26,7 @@
 		</p>
 	</div>
 	<div class="absolute bottom-0 flex flex-row overflow-x-scroll no-scrollbar max-h-[300px]">
-		<Marquee>
+		<Marquee pauseOnHover={true} speed={50}>
 			<img
 				class="max-h-[300px] w-auto"
 				src={pb.files.getUrl(data.main, data.main.marquee_1)}
