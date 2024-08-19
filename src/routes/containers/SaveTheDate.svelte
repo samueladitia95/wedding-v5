@@ -19,8 +19,7 @@
 		{ type: 'Minute', value: 0 },
 		{ type: 'Second', value: 0 }
 	];
-	const eventCalenderLink =
-		'https://calendar.app.google/oKe4F6P8PWjFqfnKA';
+	const eventCalenderLink = 'https://calendar.app.google/oKe4F6P8PWjFqfnKA';
 
 	onMount(() => {
 		setInterval(function () {
@@ -42,29 +41,30 @@
 </script>
 
 <div class="wrapper bg-mj-beige justify-center tracking-widest">
-	<!-- butuh font light -->
 	<div
-		class="!max-w-[1600px] self-center flex flex-col gap-16 justify-center items-center w-full min-h-screen uppercase text-center font-gordita text-mj-black px-6 py-28"
+		class="self-center flex flex-col gap-16 justify-center items-center w-full min-h-screen uppercase text-center font-gordita text-mj-black px-6 py-28 container"
 	>
 		<!-- Ini harusnya ivyOra light (font weight: 300) -->
 		<div class="flex flex-col gap-8 items-center">
-			<p class="font-ivora text-3xl tracking-[0.4rem]">{title}</p>
+			<p class="font-ivora text-3xl md:!text-[40px] lg:!text-5xl tracking-[0.4rem]">{title}</p>
 			<div class="min-h-14 w-0 border-l border-mj-gray"></div>
 			<div class="flex flex-col gap-4">
-				<p class="text-xl">
+				<p class="text-xl lg:!text-2xl">
 					{day}
 				</p>
 
-				<p class="text-sm">
+				<p class="text-sm md:!text-lg">
 					2<sup class="lowercase">nd</sup> of October, 2024
 				</p>
 			</div>
 		</div>
-		<div class="grid grid-cols-2 md:flex gap-y-6 sm:gap-x-12">
+		<div class="grid grid-cols-2 md:flex gap-y-6 sm:gap-x-12 md:my-16">
 			{#each countdowns as countdown}
 				<div class="flex flex-col gap-4 min-w-40">
-					<p class="text-3xl">{countdown.value}</p>
-					<p class="text-xs">{countdown.type}(s)</p>
+					<p class="font-ivora text-3xl md:!text-[40px] lg:!text-5xl">
+						{countdown.value}
+					</p>
+					<p class="text-xs font-light md:!text-sm lg:!text-base">{countdown.type}(s)</p>
 				</div>
 			{/each}
 		</div>
