@@ -1,5 +1,4 @@
 <script lang="ts">
-	import LetterOpener from './containers/letterOpener.svelte';
 	import Rsvp from './containers/Rsvp.svelte';
 	import Attire from './containers/Attire.svelte';
 	import WeddingGift from './containers/WeddingGift.svelte';
@@ -19,9 +18,8 @@
 	// let prop2: string = 'prop2'; // ? props with default value
 	// $: computed1 = state1 * 2 // ? computed value
 
-	let isInvitationOpened = true;
+	let isInvitationOpened = false;
 	const openInvitation = () => {
-		console.log('masuk kok');
 		isInvitationOpened = true;
 	};
 	export let data: PageData;
@@ -31,37 +29,33 @@
 	});
 </script>
 
-{#if !isInvitationOpened}
-	<LetterOpener {openInvitation} />
-{/if}
-{#if isInvitationOpened}
-	<Intro {data} />
-	<Started {data} />
-	<TogetherWith {data} />
-	<SaveTheDate />
-	<Map {data} />
-	<Details />
-	<TravelGuide {data} />
-	<Attire {data} />
-	<QnA {data} />
-	<div class="lg:hidden">
-		<Rsvp />
-		<Wishes />
-	</div>
-	<div class="bg-mj-sand hidden lg:flex lg:flex-row justify-center w-full">
-		<div class="grid grid-cols-2 w-full xl:min-w-[1440px]">
-			<div class="bg-mj-sand2 flex flex-row justify-end pl-8">
-				<Rsvp />
-			</div>
-			<div class="bg-mj-dark-sand flex justify-center pr-8">
-				<Wishes />
-			</div>
+<Intro {data} {isInvitationOpened} {openInvitation} />
+<Started {data} />
+<TogetherWith {data} />
+<SaveTheDate />
+<Map {data} />
+<Details />
+<TravelGuide {data} />
+<Attire {data} />
+<QnA {data} />
+<div class="lg:hidden">
+	<Rsvp />
+	<Wishes />
+</div>
+<div class="bg-mj-sand hidden lg:flex lg:flex-row justify-center w-full">
+	<div class="grid grid-cols-2 w-full xl:min-w-[1440px]">
+		<div class="bg-mj-sand2 flex flex-row justify-end pl-8">
+			<Rsvp />
+		</div>
+		<div class="bg-mj-dark-sand flex justify-center pr-8">
+			<Wishes />
 		</div>
 	</div>
-	<WeddingGift {data} />
-	<div
-		class="px-[24px] py-[16px] flex text-center justify-center bg-[#594F47] text-white text-[12px]"
-	>
-		<p>Website Invitation by Another Chapter</p>
-	</div>
-{/if}
+</div>
+<WeddingGift {data} />
+<div
+	class="px-[24px] py-[16px] flex text-center justify-center bg-[#594F47] text-white text-[12px]"
+>
+	<p>Website Invitation by Another Chapter</p>
+</div>
+<!-- {/if} -->
