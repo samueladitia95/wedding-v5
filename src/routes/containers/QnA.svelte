@@ -64,13 +64,29 @@
 			alt="3"
 		/>
 		<p
-			class="absolute bottom-0 left-0 max-w-48 text-3xl md:text-4xl lg:text-5xl md:text-nowrap pl-4 pb-4 md:pl-8 md:pb-8 lg:pl-12 lg:pb-12 2xl:left-48 font-timesNewRoman tracking-widest"
+			class="absolute
+				bottom-0
+				left-0
+				max-w-48
+				text-3xl
+				md:text-4xl
+				lg:text-5xl
+				md:text-nowrap
+				pl-4
+				pb-4
+				md:pl-8
+				md:pb-8
+				lg:pl-12
+				lg:pb-12
+				2xl:left-48
+				font-ivora
+				tracking-widest"
 		>
 			QUESTIONS & ANSWERS
 		</p>
 	</div>
 	<div
-		class="px-6 md:px-8 lg:px-16 py-14 font-gordita flex flex-col gap-14 max-w-[1600px] 2xl:self-center 2xl:w-full"
+		class="flex flex-col gap-14 max-w-[1600px] 2xl:self-center 2xl:w-full px-6 md:px-8 lg:px-16 py-14 font-gordita"
 	>
 		{#each questions as item, index}
 			<QnACard
