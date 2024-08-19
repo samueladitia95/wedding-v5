@@ -1,4 +1,7 @@
 <script lang="ts">
+	import { inview, type ObserverEventDetails } from 'svelte-inview';
+	import { fade, fly } from 'svelte/transition';
+
 	import type { PageData } from '../$types';
 	import QnACard from '$lib/components/QnACard.svelte';
 	import { pb } from '$lib/pocketbase';
@@ -44,9 +47,21 @@
 	];
 
 	export let data: PageData;
+
+	let isShow: boolean = false;
+	const handleChange = ({ detail }: CustomEvent<ObserverEventDetails>): void => {
+		if (!isShow && detail.inView) isShow = true;
+	};
 </script>
 
-<div class="wrapper bg-mj-black relative flex !flex-col text-white justify-start">
+<div
+	class="wrapper bg-mj-black relative flex !flex-col text-white justify-start"
+	use:inview={{
+		rootMargin: '-100px',
+		unobserveOnEnter: true
+	}}
+	on:inview_change={handleChange}
+>
 	<div class="relative min-h-48 min-w-full flex justify-center 2xl:min-w-2 2xl:self-center">
 		<img
 			class="object-cover md:hidden lg:hidden"
@@ -63,8 +78,9 @@
 			src={pb.files.getUrl(data.main, data.main.qna_desktop)}
 			alt="3"
 		/>
-		<p
-			class="absolute
+		{#if isShow}
+			<p
+				class="absolute
 				bottom-0
 				left-0
 				max-w-48
@@ -81,22 +97,28 @@
 				2xl:left-48
 				font-ivora
 				tracking-widest"
-		>
-			QUESTIONS & ANSWERS
-		</p>
+				in:fade={{ duration: 2000 }}
+			>
+				QUESTIONS & ANSWERS
+			</p>
+		{/if}
 	</div>
 	<div
 		class="flex flex-col gap-14 max-w-[1600px] 2xl:self-center 2xl:w-full px-6 md:px-8 lg:px-16 py-14 font-gordita"
 	>
 		{#each questions as item, index}
-			<QnACard
-				question={item.question}
-				answer={item.answer}
-				conditional={item.conditional}
-				conditional2={item.conditional2}
-				{index}
-				isLast={index === questions.length - 1}
-			/>
+			{#if isShow}
+				<div transition:fly={{ x: 200, duration: 1000, delay: 1000 + 200 * (index + 1) }}>
+					<QnACard
+						question={item.question}
+						answer={item.answer}
+						conditional={item.conditional}
+						conditional2={item.conditional2}
+						{index}
+						isLast={index === questions.length - 1}
+					/>
+				</div>
+			{/if}
 		{/each}
 	</div>
 </div>
