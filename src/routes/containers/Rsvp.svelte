@@ -26,10 +26,14 @@
 		class="bg-mj-sand2 min-h-screen py-[80px] px-[24px] flex lg:justify-center w-full font-gordita"
 	>
 		<div class="flex flex-col text-white lg:max-w-[800px] w-full">
-			<h1 class="text-[32px] pb-[24px] tracking-widest font-ivora font-light">RSVP & WISHES</h1>
+			<h1 class="text-[32px] md:text-[40px]/loose pb-[24px] tracking-widest font-ivora font-light">
+				RSVP & WISHES
+			</h1>
 			<div class="flex flex-col gap-[20px] pb-[40px] text-xs/loose md:text-[14px] tracking-wide">
 				<p>{rsvp_intro}</p>
-				<p class="text-xs/loose tracking-normal font-timesNewRoman italic">{rsvp_due_date}</p>
+				<p class="text-sm/loose md:text-base/loose tracking-normal font-timesNewRoman italic">
+					{rsvp_due_date}
+				</p>
 				<p>{rsvp_wishes}</p>
 			</div>
 			<form>

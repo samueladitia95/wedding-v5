@@ -14,7 +14,7 @@
 </script>
 
 <button
-	class="button"
+	class="cursor-pointer"
 	on:click={togglePlay}
 	on:mouseenter={() => (isHovered = true)}
 	on:mouseleave={() => (isHovered = false)}

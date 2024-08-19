@@ -20,6 +20,6 @@
 			<p class="tracking-widest md:!text-lg">{hotel}</p>
 			<p class="text-xs/loose tracking-wider md:!text-base/loose">{address}</p>
 		</div>
-		<GetLocationButton />
+		<GetLocationButton location="https://maps.app.goo.gl/YRM7ZgejsRxvkfrv9" />
 	</div>
 </div>

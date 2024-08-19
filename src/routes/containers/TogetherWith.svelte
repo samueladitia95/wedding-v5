@@ -48,27 +48,31 @@
 
 	<!-- LARGE DISPLAY -->
 	<div
-		class="h-screen 
-			px-[24px] 
-			py-[112px] 
-			flex-col 
-			text-white 
-			text-center 
-			justify-center 
-			gap-[96px] 
-			uppercase 
-			hidden 
-			lg:flex 
-			max-w-[1600px]"
+		class="h-screen
+			px-[24px]
+			py-[112px]
+			flex-col
+			text-white
+			text-center
+			justify-center
+			gap-[96px]
+			uppercase
+			hidden
+			lg:flex
+			w-screen"
 	>
-		<p class="text-base max-w-[300px] self-center font-gordita tracking-[0.3em] leading-9 text-center">{togetherWith}</p>
+		<p
+			class="text-base max-w-[300px] self-center font-gordita tracking-[0.3em] leading-9 text-center"
+		>
+			{togetherWith}
+		</p>
 
-		<div class="grid grid-flow-col grid-cols-12 items-center xl:px-24 gap-6">
+		<div class="grid grid-flow-col grid-cols-10 items-center xl:px-24 gap-6">
 			<div class="flex flex-col gap-5 col-span-4">
 				<p class="text-4xl font-ivora font-light tracking-widest">{groom}</p>
 				<p class="text-sm font-gordita tracking-widest">{groomFamily}</p>
 			</div>
-			<div class="flex items-center justify-center col-span-4">
+			<div class="flex items-center justify-center col-span-2">
 				<img
 					class="h-[435px] max-w-[300px] rounded-[150px] object-cover"
 					src={pb.files.getUrl(data.main, data.main.together_desktop)}
