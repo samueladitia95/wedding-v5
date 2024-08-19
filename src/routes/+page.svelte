@@ -31,24 +31,28 @@
 {/if}
 {#if isInvitationOpened}
 	<Intro {data} />
-	<Started {data}/>
+	<Started {data} />
 	<TogetherWith {data} />
 	<SaveTheDate />
 	<Map {data} />
 	<Details />
+	<Attire {data} />
+	<QnA {data} />
 	<TravelGuide {data} />
 	<div class="lg:hidden">
 		<Rsvp />
 		<Wishes />
 	</div>
 	<div class="bg-mj-sand hidden lg:flex lg:flex-row justify-center w-full">
-		<div class="flex flex-row xl:min-w-[1440px] max-w-[1600px]">
-			<Rsvp />
-			<Wishes />
+		<div class="grid grid-cols-2 w-full xl:min-w-[1440px]">
+			<div class="bg-mj-sand2 flex flex-row justify-end pl-8">
+				<Rsvp />
+			</div>
+			<div class="bg-mj-dark-sand flex justify-center pr-8">
+				<Wishes />
+			</div>
 		</div>
 	</div>
-	<Attire {data}/>
-	<QnA {data} />
 	<WeddingGift {data} />
 	<div
 		class="px-[24px] py-[16px] flex text-center justify-center bg-[#594F47] text-white text-[12px]"
