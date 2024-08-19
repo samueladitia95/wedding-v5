@@ -39,10 +39,10 @@
 	];
 </script>
 
-<div class="bg-mj-dark-brown min-h-screen flex justify-center">
-	<div class="px-6 py-28 flex flex-col justify-center items-center text-white max-w-[1600px]">
-		<p class="text-3xl pb-10 tracking-widest font-ivora font-light">{title}</p>
-		<div class="flex flex-col gap-16">
+<div class="bg-mj-dark-brown min-h-screen flex justify-center py-28">
+	<div class="px-6 flex flex-col gap-10 justify-center items-center text-white container">
+		<p class="text-3xl md:text-[40px] tracking-widest font-ivora font-light">{title}</p>
+		<div class="flex flex-col gap-16 w-full items-center">
 			{#each items as item, index}
 				<DetailsCard
 					name={item.name}
