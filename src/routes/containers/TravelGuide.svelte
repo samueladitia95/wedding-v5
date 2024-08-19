@@ -41,61 +41,74 @@
 	<img
 		src={pb.files.getUrl(data.main, data.main.travel_guide_mobile)}
 		class="absolute md:hidden left-0 top-0 min-h-full min-w-full"
+		alt="1"
 	/>
 	<img
 		src={pb.files.getUrl(data.main, data.main.travel_guide_tablet)}
 		class="absolute hidden md:block lg:hidden left-0 top-0 min-h-full min-w-full"
+		alt="1"
 	/>
 	<img
 		src={pb.files.getUrl(data.main, data.main.travel_guide_desktop)}
 		class="absolute hidden lg:block left-0 top-0 min-h-full min-w-full"
+		alt="1"
 	/>
 	<div
-		class="flex flex-col px-6 py-16 z-20 text-white font-gordita text-center w-full justify-center gap-14 tracking-wide"
+		class="flex flex-col px-6 py-40 z-20 text-white font-gordita text-center w-full justify-center gap-14 tracking-wide"
 	>
-		<div>
-			<p class="pb-6 text-3xl font-timesNewRoman tracking-widest">TRAVEL GUIDE</p>
+		<div class="flex flex-col gap-6">
+			<p class="text-3xl font-ivora font-light tracking-widest">TRAVEL GUIDE</p>
 			<p class="text-xs">FOR OUTSIDE BALI ONLY</p>
 		</div>
 		<div class="flex flex-col gap-14">
-			<!-- {#each guides as item, index}
-            <TravelGuideCard name={item.name} detail={item.detail} image={item.image} index={index} />
-            {/each} -->
-			<div class="flex flex-col justify-center items-center uppercase">
-				<img class="pb-8" src={guides[0].image} />
+			<!-- POINT 1 -->
+			<div class="flex flex-col justify-center items-center uppercase font-gordita">
+				<img class="pb-8" src={guides[0].image} alt="1" />
 				<p class="pb-6 tracking-wider">{guides[0].name}</p>
 				<p class="text-xs whitespace-pre-line leading-loose max-w-[300px]">{guides[0].detail}</p>
 			</div>
+
+			<!-- POINT 2 -->
 			<div class="flex flex-col justify-center items-center uppercase gap-10">
-				<img src={guides[1].image} />
-				<p class="tracking-wider">{guides[1].name}</p>
-				<div class="flex flex-col lg:flex-row items-center uppercase gap-10">
+				<img src={guides[1].image} alt="1" />
+
+				<p class="tracking-widest text-center font-gordita">{guides[1].name}</p>
+
+				<div class="flex flex-col lg:flex-row items-center uppercase gap-10 font-gordita">
 					<div class="flex flex-col lg:justify-evenly lg:h-36 gap-4">
 						<p class="text-xs font-bold">{guides[1].conditional1}</p>
-						<p class="text-xs whitespace-pre-line leading-loose">{guides[1].detail1}</p>
-						<div class="lg:hidden">
+						<p class="text-xs whitespace-pre-line leading-loose max-w-60">
+							THE GARCIA UBUD *Breakfast included
+						</p>
+						<div>
 							<GetLocationButton />
 						</div>
 					</div>
-					<img src={divider} />
+
+					<img src={divider} alt="1" />
+
 					<div class="flex flex-col lg:justify-evenly lg:h-36 gap-4">
 						<p class="text-xs font-bold">{guides[1].conditional2}</p>
-						<p class="text-xs whitespace-pre-line leading-loose">{guides[1].detail2}</p>
-						<div class="lg:hidden">
+						<p class="text-xs whitespace-pre-line leading-loose text-center">
+							MAYA UBUD <br /> *Breakfast included
+						</p>
+						<div>
 							<GetLocationButton />
 						</div>
 					</div>
 				</div>
 			</div>
+
+			<!-- POINT 3 -->
 			<div class="flex flex-col justify-center items-center uppercase gap-10">
-				<img src={guides[2].image} />
+				<img src={guides[2].image} alt="1" />
 				<p class="tracking-wider">{guides[2].name}</p>
 				<div class="flex flex-col lg:flex-row items-center uppercase gap-10">
 					<div class="flex flex-col gap-4">
 						<p class="text-xs font-bold">{guides[2].conditional1}</p>
 						<p class="text-xs whitespace-pre-line leading-loose">{guides[2].detail1}</p>
 					</div>
-					<img src={divider} />
+					<img src={divider} alt="1" />
 					<div class="flex flex-col gap-4">
 						<p class="text-xs font-bold">{guides[2].conditional2}</p>
 						<p class="text-xs whitespace-pre-line leading-loose">{guides[2].detail2}</p>
