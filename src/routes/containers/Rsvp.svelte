@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { inview, type ObserverEventDetails } from 'svelte-inview';
-	import { fade, fly } from 'svelte/transition';
+	import { fade } from 'svelte/transition';
 
 	import Input from '$lib/components/Input.svelte';
 	// import { superForm } from 'sveltekit-superforms/client';
