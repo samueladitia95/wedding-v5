@@ -85,7 +85,7 @@
 							THE GARCIA UBUD <br /> *Breakfast included
 						</p>
 						<div>
-							<GetLocationButton />
+							<GetLocationButton location="https://maps.app.goo.gl/ZBPxdBLw4y9HX8PeA" />
 						</div>
 					</div>
 
@@ -97,7 +97,7 @@
 							MAYA UBUD <br /> *Breakfast included
 						</p>
 						<div>
-							<GetLocationButton />
+							<GetLocationButton location="https://maps.app.goo.gl/YRM7ZgejsRxvkfrv9" />
 						</div>
 					</div>
 				</div>
