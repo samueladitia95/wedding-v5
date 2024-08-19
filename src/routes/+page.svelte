@@ -41,9 +41,9 @@
 	<SaveTheDate />
 	<Map {data} />
 	<Details />
+	<TravelGuide {data} />
 	<Attire {data} />
 	<QnA {data} />
-	<TravelGuide {data} />
 	<div class="lg:hidden">
 		<Rsvp />
 		<Wishes />
