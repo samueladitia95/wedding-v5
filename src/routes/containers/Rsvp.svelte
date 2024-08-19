@@ -1,6 +1,9 @@
 <script lang="ts">
+	import { inview, type ObserverEventDetails } from 'svelte-inview';
+	import { fade, fly } from 'svelte/transition';
+
 	import Input from '$lib/components/Input.svelte';
-	import { superForm } from 'sveltekit-superforms/client';
+	// import { superForm } from 'sveltekit-superforms/client';
 	import star from '$lib/assets/star.svg?raw';
 	import loading from '$lib/assets/loading.svg?raw';
 
@@ -19,112 +22,126 @@
 			isLoading = false;
 		}, 1500);
 	}
+
+	let isShow: boolean = false;
+	const handleChange = ({ detail }: CustomEvent<ObserverEventDetails>): void => {
+		if (!isShow && detail.inView) isShow = true;
+	};
 </script>
 
 {#if !endScreen}
 	<div
 		class="bg-mj-sand2 min-h-screen py-[80px] px-[24px] flex lg:justify-center w-full font-gordita"
+		use:inview={{
+			rootMargin: '-100px',
+			unobserveOnEnter: true
+		}}
+		on:inview_change={handleChange}
 	>
-		<div class="flex flex-col text-white lg:max-w-[800px] w-full">
-			<h1 class="text-[32px] md:text-[40px]/loose pb-[24px] tracking-widest font-ivora font-light">
-				RSVP & WISHES
-			</h1>
-			<div class="flex flex-col gap-[20px] pb-[40px] text-xs/loose md:text-[14px] tracking-wide">
-				<p>{rsvp_intro}</p>
-				<p class="text-sm/loose md:text-base/loose tracking-normal font-timesNewRoman italic">
-					{rsvp_due_date}
-				</p>
-				<p>{rsvp_wishes}</p>
-			</div>
-			<form>
-				<div class="flex flex-col gap-[24px] text-[14px]">
-					<Input name="full_name" label="Fill Your Name" />
-					<Input name="phone_number" label="Phone Number" />
-					<Input name="email" label="Email" />
-
-					<div class="py-[12px]">
-						<div class="font-editor-hand text-ca-blue text-[14px] flex">
-							Will you be attending the wedding? &nbsp
-							<p class="text-mj-error max-w-[8px] -translate-y-1">{@html star}</p>
-						</div>
-						<div class="flex gap-12 md:gap-28 w-full ml-3 mt-3">
-							<div class="flex gap-2 items-center">
-								<input
-									name="subject"
-									type="radio"
-									class="w-5 h-5 appearance-none border-2 border-white/20 rounded-full box-content checked:bg-white checked:ring-4 checked:ring-mj-sand checked:ring-inset"
-								/>
-								<div class="text-ca-blue font-editor-hand">Yes</div>
-							</div>
-							<div class="flex gap-2 items-center">
-								<input
-									name="subject"
-									type="radio"
-									class="w-5 h-5 appearance-none border-2 border-white/20 rounded-full box-content checked:bg-white checked:ring-4 checked:ring-mj-sand checked:ring-inset"
-								/>
-								<div class="text-ca-blue font-editor-hand">No</div>
-							</div>
-						</div>
-					</div>
-					<Input
-						name="plus1"
-						label="Are you bringing a +1?"
-						placeholder="If so, please let us know"
-					/>
-
-					<div class="py-[12px]">
-						<div class="font-editor-hand text-ca-blue text-[14px] flex">
-							Please Select Your Main Dish &nbsp
-							<p class="text-mj-error max-w-[8px] -translate-y-1">{@html star}</p>
-						</div>
-						<div class="flex gap-12 md:gap-28 w-full ml-3 mt-3">
-							<div class="flex gap-2 items-center">
-								<input
-									name="subject"
-									type="radio"
-									class="w-5 h-5 appearance-none border-2 border-white/20 rounded-full box-content checked:bg-white checked:ring-4 checked:ring-mj-sand checked:ring-inset"
-								/>
-								<div class="text-ca-blue font-editor-hand">Beef</div>
-							</div>
-							<div class="flex gap-2 items-center">
-								<input
-									name="subject"
-									type="radio"
-									class="w-5 h-5 appearance-none border-2 border-white/20 rounded-full box-content checked:bg-white checked:ring-4 checked:ring-mj-sand checked:ring-inset"
-								/>
-								<div class="text-ca-blue font-editor-hand">Chicken</div>
-							</div>
-						</div>
-					</div>
-					<div class="flex flex-col gap-[36px]">
-						<Input
-							name="allergies"
-							label="Do you have any allergies & food restrictions?"
-							placeholder="If you have one, please let us know"
-						/>
-						<Input name="wishes" label="Wishes" placeholder="Write your wishes" />
-						<Input
-							name="from"
-							label="From"
-							placeholder="Enter your name here to send your wishes."
-						/>
-						{#if !isLoading}
-							<button
-								class="w-full bg-mj-button-disabled text-mj-button-disabled-text py-[16px] rounded-[45px] hover:bg-white hover:text-mj-black transition-all duration-300 tracking-widest"
-								on:click={toggleLoading}>SUBMIT RSVP & WISHES</button
-							>
-							<!-- emulating button styling -->
-						{:else}
-							<button
-								class="w-full bg-mj-button-disabled text-mj-button-disabled-text py-[16px] rounded-[45px] hover:bg-white hover:text-mj-black transition-all duration-300 flex text-center justify-center gap-2 tracking-widest"
-								on:click={toggleLoading}
-								><span class="rotate">{@html loading}</span>LOADING...</button
-							>
-						{/if}
-					</div>
+		{#if isShow}
+			<div class="flex flex-col text-white lg:max-w-[800px] w-full" in:fade={{ duration: 1000 }}>
+				<h1
+					class="text-[32px] md:text-[40px]/loose pb-[24px] tracking-widest font-ivora font-light"
+				>
+					RSVP & WISHES
+				</h1>
+				<div class="flex flex-col gap-[20px] pb-[40px] text-xs/loose md:text-[14px] tracking-wide">
+					<p>{rsvp_intro}</p>
+					<p class="text-sm/loose md:text-base/loose tracking-normal font-timesNewRoman italic">
+						{rsvp_due_date}
+					</p>
+					<p>{rsvp_wishes}</p>
 				</div>
-			</form>
-		</div>
+				<form>
+					<div class="flex flex-col gap-[24px] text-[14px]">
+						<Input name="full_name" label="Fill Your Name" />
+						<Input name="phone_number" label="Phone Number" />
+						<Input name="email" label="Email" />
+
+						<div class="py-[12px]">
+							<div class="font-editor-hand text-ca-blue text-[14px] flex">
+								Will you be attending the wedding? &nbsp
+								<p class="text-mj-error max-w-[8px] -translate-y-1">{@html star}</p>
+							</div>
+							<div class="flex gap-12 md:gap-28 w-full ml-3 mt-3">
+								<div class="flex gap-2 items-center">
+									<input
+										name="subject"
+										type="radio"
+										class="w-5 h-5 appearance-none border-2 border-white/20 rounded-full box-content checked:bg-white checked:ring-4 checked:ring-mj-sand checked:ring-inset"
+									/>
+									<div class="text-ca-blue font-editor-hand">Yes</div>
+								</div>
+								<div class="flex gap-2 items-center">
+									<input
+										name="subject"
+										type="radio"
+										class="w-5 h-5 appearance-none border-2 border-white/20 rounded-full box-content checked:bg-white checked:ring-4 checked:ring-mj-sand checked:ring-inset"
+									/>
+									<div class="text-ca-blue font-editor-hand">No</div>
+								</div>
+							</div>
+						</div>
+						<Input
+							name="plus1"
+							label="Are you bringing a +1?"
+							placeholder="If so, please let us know"
+						/>
+
+						<div class="py-[12px]">
+							<div class="font-editor-hand text-ca-blue text-[14px] flex">
+								Please Select Your Main Dish &nbsp
+								<p class="text-mj-error max-w-[8px] -translate-y-1">{@html star}</p>
+							</div>
+							<div class="flex gap-12 md:gap-28 w-full ml-3 mt-3">
+								<div class="flex gap-2 items-center">
+									<input
+										name="subject"
+										type="radio"
+										class="w-5 h-5 appearance-none border-2 border-white/20 rounded-full box-content checked:bg-white checked:ring-4 checked:ring-mj-sand checked:ring-inset"
+									/>
+									<div class="text-ca-blue font-editor-hand">Beef</div>
+								</div>
+								<div class="flex gap-2 items-center">
+									<input
+										name="subject"
+										type="radio"
+										class="w-5 h-5 appearance-none border-2 border-white/20 rounded-full box-content checked:bg-white checked:ring-4 checked:ring-mj-sand checked:ring-inset"
+									/>
+									<div class="text-ca-blue font-editor-hand">Chicken</div>
+								</div>
+							</div>
+						</div>
+						<div class="flex flex-col gap-[36px]">
+							<Input
+								name="allergies"
+								label="Do you have any allergies & food restrictions?"
+								placeholder="If you have one, please let us know"
+							/>
+							<Input name="wishes" label="Wishes" placeholder="Write your wishes" />
+							<Input
+								name="from"
+								label="From"
+								placeholder="Enter your name here to send your wishes."
+							/>
+							{#if !isLoading}
+								<button
+									class="w-full bg-mj-button-disabled text-mj-button-disabled-text py-[16px] rounded-[45px] hover:bg-white hover:text-mj-black transition-all duration-300 tracking-widest"
+									on:click={toggleLoading}>SUBMIT RSVP & WISHES</button
+								>
+								<!-- emulating button styling -->
+							{:else}
+								<button
+									class="w-full bg-mj-button-disabled text-mj-button-disabled-text py-[16px] rounded-[45px] hover:bg-white hover:text-mj-black transition-all duration-300 flex text-center justify-center gap-2 tracking-widest"
+									on:click={toggleLoading}
+									><span class="rotate">{@html loading}</span>LOADING...</button
+								>
+							{/if}
+						</div>
+					</div>
+				</form>
+			</div>
+		{/if}
 	</div>
 {:else}
 	<div
