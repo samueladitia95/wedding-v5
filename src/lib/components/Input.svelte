@@ -5,15 +5,17 @@
 	export let name: string;
 	export let label: string;
 	export let error: string[] | undefined = undefined;
-	export let value: string;
-	export let placeholder: string = ""
+	export let value: string = '';
+	export let placeholder: string = '';
 	$: hasPlaceholder = !!placeholder;
 </script>
 
 <div class="relative h-11 w-full font-editor-hand">
 	<input
 		placeholder={placeholder || label}
-		class={placeholder? `peer h-full w-full border-b-[1px] border-white bg-transparent pt-4 pb-1.5 text-white outline outline-0 transition-all placeholder-shown:border-white/20 focus:text-white focus:outline-0 placeholder:text-white/40 placeholder:opacity-100 md:text-xl`:`peer h-full w-full border-b border-white bg-transparent pt-4 pb-1.5 text-white outline outline-0 transition-all placeholder-shown:border-white/20 focus:text-white focus:outline-0 placeholder:opacity-0 placeholder:text-white/40 focus:placeholder:opacity-100 md:text-xl`}
+		class={placeholder
+			? `peer h-full w-full border-b-[1px] border-white bg-transparent pt-4 pb-1.5 text-white outline outline-0 transition-all placeholder-shown:border-white/20 focus:text-white focus:outline-0 placeholder:text-white/40 placeholder:opacity-100 md:text-xl`
+			: `peer h-full w-full border-b border-white bg-transparent pt-4 pb-1.5 text-white outline outline-0 transition-all placeholder-shown:border-white/20 focus:text-white focus:outline-0 placeholder:opacity-0 placeholder:text-white/40 focus:placeholder:opacity-100 md:text-xl`}
 		bind:value
 		required
 		{name}
