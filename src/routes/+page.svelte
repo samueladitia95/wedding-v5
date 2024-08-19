@@ -29,6 +29,8 @@
 	});
 </script>
 
+<!-- <LetterOpener {openInvitation} {isInvitationOpened} /> -->
+<!-- {#if isInvitationOpened} -->
 <Intro {data} {isInvitationOpened} {openInvitation} />
 <Started {data} />
 <TogetherWith {data} />
