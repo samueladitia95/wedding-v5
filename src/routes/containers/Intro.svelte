@@ -1,5 +1,4 @@
 <script lang="ts">
-	import PlayButton from '$lib/components/PlayButton.svelte';
 	import type { PageData } from '../$types';
 	import { pb } from '$lib/pocketbase';
 	export let data: PageData;
@@ -61,9 +60,7 @@
 				{/if}
 			</div>
 			<div class="relative">
-				<div class="absolute -left-10 md:-left-32 xl:-left-80 -top-2">
-					<PlayButton />
-				</div>
+				<div class="absolute -left-10 md:-left-32 xl:-left-80 -top-2" />
 			</div>
 		</div>
 	</div>
