@@ -69,14 +69,3 @@
 		<p class="font-ivora">{invite}</p>
 	</div>
 </div>
-
-<style>
-	.testing {
-		display: flex;
-		padding: 0px 72px;
-		justify-content: center;
-		align-items: center;
-		gap: 40px;
-		align-self: stretch;
-	}
-</style>
