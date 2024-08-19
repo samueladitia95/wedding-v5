@@ -3,64 +3,78 @@
 @tailwind utilities;
 
 .container {
-    max-width: 500px;
-    margin-inline: auto;
+	max-width: 500px;
+	margin-inline: auto;
 }
 
-.no-scrollbar::-webkit-scrollbar{
-    display:none
+.no-scrollbar::-webkit-scrollbar {
+	display: none;
 }
 
 .no-scrollbar {
-    -ms-overflow-style:none;
-    scrollbar-width:none;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
 }
 
 .wrapper {
-    display: flex;
-    flex-direction: row;
-    min-height: 100vh;
+	display: flex;
+	flex-direction: row;
+	min-height: 100vh;
 }
 
 @layer base {
 	@font-face {
-		font-family: "gordita";
-		src: local("gordita"), url("/fonts/Gordita/Gordita-Light.otf");
+		font-family: 'gordita';
+		src: local('gordita'), url('/fonts/Gordita/Gordita-Light.otf');
 		font-weight: 300;
 		font-display: swap;
 		font-style: normal;
 	}
 	@font-face {
-		font-family: "gordita";
-		src: local("gordita"), url("/fonts/Gordita/Gordita-Regular.otf");
+		font-family: 'gordita';
+		src: local('gordita'), url('/fonts/Gordita/Gordita-Regular.otf');
 		font-weight: 400;
 		font-display: swap;
 		font-style: normal;
 	}
 	@font-face {
-		font-family: "gordita";
-		src: local("gordita"), url("/fonts/Gordita/Gordita-Bold.otf");
+		font-family: 'gordita';
+		src: local('gordita'), url('/fonts/Gordita/Gordita-Bold.otf');
 		font-weight: 700;
 		font-display: swap;
 		font-style: normal;
 	}
 	@font-face {
-		font-family: "timesNewRoman";
-		src: local("timesNewRoman"), url("/fonts/Times New Roman/Times New Roman.ttf");
+		font-family: 'timesNewRoman';
+		src: local('timesNewRoman'), url('/fonts/Times New Roman/Times New Roman.ttf');
 		font-weight: 400;
 		font-display: swap;
 		font-style: normal;
 	}
 	@font-face {
-		font-family: "timesNewRoman";
-		src: local("timesNewRoman"), url("/fonts/Times New Roman/Times New Roman Italic.ttf");
+		font-family: 'timesNewRoman';
+		src: local('timesNewRoman'), url('/fonts/Times New Roman/Times New Roman Italic.ttf');
 		font-weight: 400;
 		font-display: swap;
 		font-style: italic;
 	}
 	@font-face {
-		font-family: "aboreto";
-		src: local("aboreto"), url("/fonts/Aboreto/Aboreto-Regular.ttf");
+		font-family: 'aboreto';
+		src: local('aboreto'), url('/fonts/Aboreto/Aboreto-Regular.ttf');
+		font-weight: 400;
+		font-display: swap;
+		font-style: normal;
+	}
+	@font-face {
+		font-family: 'ivyora-display';
+		src: local('ivyora-display'), url('/fonts/ivory/IvyOraDisplay-Thin.ttf');
+		font-weight: 100;
+		font-display: swap;
+		font-style: normal;
+	}
+	@font-face {
+		font-family: 'ivyora-display';
+		src: local('ivyora-display'), url('/fonts/ivory/IvyOraDisplay-Light.ttf');
 		font-weight: 400;
 		font-display: swap;
 		font-style: normal;
