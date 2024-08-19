@@ -13,6 +13,7 @@
 	import type { PageData } from './$types';
 	import QnA from './containers/QnA.svelte';
 	import SaveTheDate from './containers/SaveTheDate.svelte';
+	import { onMount } from 'svelte';
 	// const state1: string = 'state1'; // ? state
 	// let prop1: string; // ? required props
 	// let prop2: string = 'prop2'; // ? props with default value
@@ -24,6 +25,10 @@
 		isInvitationOpened = true;
 	};
 	export let data: PageData;
+
+	onMount(() => {
+		document.body.classList.add('no-scrollbar');
+	});
 </script>
 
 {#if !isInvitationOpened}
