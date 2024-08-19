@@ -48,7 +48,7 @@
 	>
 		<!-- Ini harusnya ivyOra light (font weight: 300) -->
 		<div class="flex flex-col gap-8 items-center">
-			<p class="font-timesNewRoman text-3xl tracking-[0.4rem]">{title}</p>
+			<p class="font-ivora text-3xl tracking-[0.4rem]">{title}</p>
 			<div class="min-h-14 w-0 border-l border-mj-gray"></div>
 			<div class="flex flex-col gap-4">
 				<p class="text-xl">
