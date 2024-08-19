@@ -1,4 +1,7 @@
 <script lang="ts">
+	import { inview, type ObserverEventDetails } from 'svelte-inview';
+	import { fade } from 'svelte/transition';
+
 	import type { PageData } from '../$types';
 	import { pb } from '$lib/pocketbase';
 	export let data: PageData;
@@ -26,21 +29,36 @@
 			window.removeEventListener('resize', updateBackground);
 		};
 	});
+
+	let isShow: boolean = false;
+	const handleChange = ({ detail }: CustomEvent<ObserverEventDetails>): void => {
+		if (!isShow && detail.inView) isShow = true;
+	};
 </script>
 
 <div
 	class="min-h-screen flex flex-col justify-center items-center bg-cover bg-center"
 	style={`background-image: url(${backgroundUrl});`}
+	use:inview={{
+		rootMargin: '-100px',
+		unobserveOnEnter: true
+	}}
+	on:inview_change={handleChange}
 >
-	<div class="text-white text-center px-[24px] font-gordita tracking-wider">
-		<p class="text-3xl/loose md:text-[40px]/loose font-ivora tracking-widest">WEDDING GIFT</p>
-		<p
-			class="font-gordita text-xs/loose md:text-sm/10 pt-8 pb-12 px-3 max-w-[380px] md:max-w-[530px]"
+	{#if isShow}
+		<div
+			class="text-white text-center px-[24px] font-gordita tracking-wider"
+			in:fade={{ duration: 1000 }}
 		>
-			WE REQUIRE ONLY YOUR PRESENCE, BUT IF YOU FEEL SO MOVED TO GIVE US A GIFT, WE WOULD BE VERY
-			GRATEFUL!
-		</p>
-		<p class="font-gordita text-xl/loose pb-4 tracking-widest">JESSICA</p>
-		<p class="font-gordita text-base/loose">BCA 3431121288</p>
-	</div>
+			<p class="text-3xl/loose md:text-[40px]/loose font-ivora tracking-widest">WEDDING GIFT</p>
+			<p
+				class="font-gordita text-xs/loose md:text-sm/10 pt-8 pb-12 px-3 max-w-[380px] md:max-w-[530px]"
+			>
+				WE REQUIRE ONLY YOUR PRESENCE, BUT IF YOU FEEL SO MOVED TO GIVE US A GIFT, WE WOULD BE VERY
+				GRATEFUL!
+			</p>
+			<p class="font-gordita text-xl/loose pb-4 tracking-widest">JESSICA</p>
+			<p class="font-gordita text-base/loose">BCA 3431121288</p>
+		</div>
+	{/if}
 </div>
