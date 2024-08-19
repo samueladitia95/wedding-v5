@@ -20,7 +20,7 @@
 		{ type: 'Second', value: 0 }
 	];
 	const eventCalenderLink =
-		'https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=MjgzZGNobjc3ZG81bHZkMGZjaHZjYmJ1ZzIgc2FtdWVsYWRpdGlhOTVAbQ&tmsrc=samueladitia95%40gmail.com';
+		'https://calendar.app.google/oKe4F6P8PWjFqfnKA';
 
 	onMount(() => {
 		setInterval(function () {
@@ -69,7 +69,7 @@
 			{/each}
 		</div>
 		<div>
-			<PrimaryButton {buttonText} />
+			<a href={eventCalenderLink} target="_blank"> <PrimaryButton {buttonText} /> </a>
 		</div>
 	</div>
 </div>
