@@ -33,11 +33,10 @@
 </script>
 
 <div>
-	<slot />
-	<div class="w-screen h-screen z-[1000]">
-		<div class="fixed left-8 bottom-4">
+	<div class="z-[1000]">
+		<div class="fixed left-8 bottom-4 z-[1000]">
 			<button
-				class="cursor-pointer"
+				class="cursor-pointer z-[1000]"
 				on:click={togglePlay}
 				on:mouseenter={() => (isHovered = true)}
 				on:mouseleave={() => (isHovered = false)}
@@ -55,6 +54,8 @@
 			</button>
 		</div>
 	</div>
+
+	<slot />
 
 	<audio id="music-player" src={songUrl} bind:this={player} />
 </div>
