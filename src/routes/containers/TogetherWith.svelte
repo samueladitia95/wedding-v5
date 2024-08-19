@@ -27,45 +27,51 @@
 			/>
 		</div>
 
-		<div class="flex flex-col gap-[16px] md:gap-[20px] font-ivora">
-			<p class="text-3xl md:text-[40px]">{groom}</p>
-			<p class="text-xs md:text-[16px]">{groomFamily}</p>
+		<div class="flex flex-col gap-6">
+			<div class="flex flex-col gap-6 font-ivora">
+				<p class="text-3xl md:text-[40px]">{groom}</p>
+				<p class="text-xs md:text-base">{groomFamily}</p>
+			</div>
+
+			<p class="text-[32px] md:text-[40px] font-ivora">&</p>
+
+			<div class="flex flex-col gap-6 font-ivora">
+				<p class="text-[32px] md:text-[40px]">
+					{bride}
+				</p>
+				<p class="text-xs md:text-base">{brideFamily}</p>
+			</div>
 		</div>
 
-		<p class="text-[32px] md:text-[40px] font-ivora">&</p>
-		<div class="flex flex-col gap-[16px] md:gap-[20px] font-ivora">
-			<p class="text-[32px] md:text-[40px]">
-				{bride}
-			</p>
-			<p class="text-xs">{brideFamily}</p>
-		</div>
-		<p class="text-xs">{invite}</p>
+		<p class="text-xs md:text-sm md:mt-14">{invite}</p>
 	</div>
 
 	<!-- LARGE DISPLAY -->
 	<div
 		class="h-screen px-[24px] py-[112px] flex-col text-white text-center justify-center gap-[96px] uppercase hidden lg:flex max-w-[1600px]"
 	>
-		<p class="text-[16px] max-w-[230px] self-center">{togetherWith}</p>
-		<div class="grid grid-flow-col grid-cols-10 items-center xl:px-[100px] gap-6">
+		<p class="text-base/loose max-w-[230px] self-center font-gordita text-center">{togetherWith}</p>
+
+		<div class="grid grid-flow-col grid-cols-12 items-center xl:px-[100px] gap-6">
 			<div class="flex flex-col gap-[20px] col-span-4">
-				<p class="text-[40px] font-aboreto">{groom}</p>
-				<p class="text-sm font-ivora">{groomFamily}</p>
+				<p class="text-[40px] font-ivora font-light">{groom}</p>
+				<p class="text-sm font-gordita">{groomFamily}</p>
 			</div>
-			<div class="flex items-center justify-center rounded-[150px col-span-2">
+			<div class="flex items-center justify-center col-span-4">
 				<img
-					class="h-[300px] rounded-[150px] object-cover"
+					class="h-[435px] max-w-[300px] rounded-[150px] object-cover"
 					src={pb.files.getUrl(data.main, data.main.together_desktop)}
 					alt="together"
 				/>
 			</div>
 			<div class="flex flex-col gap-[20px] col-span-4">
-				<p class="text-[40px] font-aboreto">
+				<p class="text-[40px] font-ivora font-light">
 					{bride}
 				</p>
-				<p class="text-sm font-ivora">{brideFamily}</p>
+				<p class="text-sm font-gordita">{brideFamily}</p>
 			</div>
 		</div>
-		<p class="font-ivora">{invite}</p>
+
+		<p class="font-gordita">{invite}</p>
 	</div>
 </div>
