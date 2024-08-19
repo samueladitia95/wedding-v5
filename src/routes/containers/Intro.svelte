@@ -43,7 +43,9 @@
 					#sayJESStoMARCO
 				{/if}
 			</p>
-			<div class="text-white text-[16px] md:text-[20px] lg:text-[18px] text-center">
+			<div
+				class="text-white text-base/relaxed tracking-widest md:text-xl/relaxed lg:text-lg/relaxed text-center"
+			>
 				{#if isLoading}
 					<p class="pb-">
 						{introLoadingText1}
@@ -53,7 +55,9 @@
 					</p>
 				{/if}
 				{#if !isLoading}
-					{introMainText}
+					<div class="font-ivora">
+						{introMainText}
+					</div>
 				{/if}
 			</div>
 			<div class="relative">
