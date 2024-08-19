@@ -18,7 +18,7 @@
 	// let prop2: string = 'prop2'; // ? props with default value
 	// $: computed1 = state1 * 2 // ? computed value
 
-	let isInvitationOpened = false;
+	let isInvitationOpened = true;
 	const openInvitation = () => {
 		console.log('masuk kok');
 		isInvitationOpened = true;

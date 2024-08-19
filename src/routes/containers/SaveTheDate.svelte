@@ -1,41 +1,44 @@
 <script lang="ts">
-	import PrimaryButton  from '$lib/components/PrimaryButton.svelte';
+	import PrimaryButton from '$lib/components/PrimaryButton.svelte';
+	import type { Dayjs } from 'dayjs';
+	import dayjs from 'dayjs';
+	import duration from 'dayjs/plugin/duration';
 	import { onMount } from 'svelte';
 
 	const title = 'save the date';
 	const day = 'wednesday';
 	const date = '2nd of October, 2024';
-    const buttonText = "Add To Calendar"
+	const buttonText = 'Add To Calendar';
 
-	let months = 0;
-	let days = 0;
-	let hours = 0;
-	let minutes = 0;
+	dayjs.extend(duration);
 
-	const targetDate = new Date('October 2, 2024 00:00:00').getTime();
+	let weddingDay: Dayjs = dayjs('October 2, 2024');
+	let countdowns = [
+		{ type: 'Month', value: 0 },
+		{ type: 'Day', value: 0 },
+		{ type: 'Minute', value: 0 },
+		{ type: 'Second', value: 0 }
+	];
+	const eventCalenderLink =
+		'https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=MjgzZGNobjc3ZG81bHZkMGZjaHZjYmJ1ZzIgc2FtdWVsYWRpdGlhOTVAbQ&tmsrc=samueladitia95%40gmail.com';
 
-	function updateCountdown() {
-		const now = new Date().getTime();
-		const distance = targetDate - now;
-
-		if (distance < 0) {
-			clearInterval(countdownInterval);
-			return;
-		}
-
-		const totalDays = Math.floor(distance / (1000 * 60 * 60 * 24));
-		months = Math.floor(totalDays / 30);
-		days = totalDays % 30;
-
-		hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-		minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-	}
-
-	let countdownInterval;
 	onMount(() => {
-		updateCountdown();
-		countdownInterval = setInterval(updateCountdown, 60000);
+		setInterval(function () {
+			const currentTime = dayjs();
+			const duration = dayjs.duration(weddingDay.diff(currentTime));
+
+			countdowns = [
+				{ type: 'Month', value: duration.months() },
+				{ type: 'Day', value: Math.floor(duration.days()) },
+				{ type: 'Minute', value: duration.minutes() },
+				{ type: 'Second', value: duration.seconds() }
+			];
+		}, 1000);
 	});
+
+	// const handleChange = ({ detail }: CustomEvent<ObserverEventDetails>): void => {
+	// 	if (!isShow && detail.inView) isShow = true;
+	// };
 </script>
 
 <div class="wrapper bg-mj-beige justify-center tracking-widest">
@@ -58,25 +61,15 @@
 			</div>
 		</div>
 		<div class="grid grid-cols-2 md:flex gap-y-6 sm:gap-x-12">
-			<div class="flex flex-col gap-4 min-w-40">
-				<p class="text-3xl">{months}</p>
-				<p class="text-xs">Month(s)</p>
-			</div>
-			<div class="flex flex-col gap-4 min-w-40">
-				<p class="text-3xl">{days}</p>
-				<p class="text-xs">day(s)</p>
-			</div>
-			<div class="flex flex-col gap-4 min-w-40">
-				<p class="text-3xl">{hours}</p>
-				<p class="text-xs">Hour(s)</p>
-			</div>
-			<div class="flex flex-col gap-4 min-w-40">
-				<p class="text-3xl">{minutes}</p>
-				<p class="text-xs">minute(s)</p>
-			</div>
+			{#each countdowns as countdown}
+				<div class="flex flex-col gap-4 min-w-40">
+					<p class="text-3xl">{countdown.value}</p>
+					<p class="text-xs">{countdown.type}(s)</p>
+				</div>
+			{/each}
 		</div>
 		<div>
-			<PrimaryButton buttonText={buttonText}  />
+			<PrimaryButton {buttonText} />
 		</div>
 	</div>
 </div>
