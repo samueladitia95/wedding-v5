@@ -30,7 +30,7 @@
     ]
 </script>
 
-<div class=" bg-mj-dark-sand min-h-screen">
+<div class=" bg-mj-dark-sand min-h-screen w-full">
     <div class="px-[24px] py-[72px] text-white gap-[48px] flex flex-col max-w-[800px]">
         {#each wishes as wish}
         <WishesCard name={wish.name} wish={wish.wish} created={wish.created} />

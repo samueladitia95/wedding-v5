@@ -4,8 +4,8 @@
 	export let created: string;
 </script>
 
-<div class="flex flex-col gap-[16px]">
-	<p class="pb-[12px]">{name}</p>
-	<p>{wish}</p>
-	<p class="text-[14px] font-extralight">{created}</p>
+<div class="flex flex-col gap-[16px] font-gordita">
+	<p class="pb-[12px] tracking-wider uppercase">{name}</p>
+	<p class="tracking-wide">{wish}</p>
+	<p class="text-[14px] font-light">{created}</p>
 </div>
