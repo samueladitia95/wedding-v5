@@ -1,57 +1,69 @@
 <script lang="ts">
-	import galleryImg1 from '$lib/assets/gallery-images/Gallery IMG 1.jpg';
-	import galleryImg2 from '$lib/assets/gallery-images/Gallery IMG 2.jpg';
-	import galleryImg3 from '$lib/assets/gallery-images/Gallery IMG 3.jpg';
-	import galleryImg4 from '$lib/assets/gallery-images/Gallery IMG 4.jpg';
-	import galleryImg5 from '$lib/assets/gallery-images/Gallery IMG 5.jpg';
 	import { Marquee } from 'svelte-fast-marquee';
 	import type { PageData } from '../$types';
 	import { pb } from '$lib/pocketbase';
+	import { inview, type ObserverEventDetails } from 'svelte-inview';
+	import { fade, fly } from 'svelte/transition';
 	export let data: PageData;
 
-	const startedText =
-		'IT ALL  started  FROM a Random  hello from a stranger 12 Years  ago AND THE REST IS JUST HISTORY';
+	let isShow: boolean = false;
+
+	const handleChange = ({ detail }: CustomEvent<ObserverEventDetails>): void => {
+		if (!isShow && detail.inView) isShow = true;
+	};
 </script>
 
 <div
 	class="relative bg-mj-beige text-mj-black min-h-screen flex justify-center md:tracking-wider lg:tracking-[0.4rem]"
+	use:inview={{
+		rootMargin: '50px',
+		unobserveOnEnter: true
+	}}
+	on:inview_change={handleChange}
 >
-	<div class="px-[24px] py-[40px] max-w-[1600px] font-light">
-		<!-- font perlu diganti -->
-		<p
-			class="text-3xl/loose md:text-5xl xl:text-7xl uppercase !leading-[4rem] md:!leading-[5rem] xl:!leading-[6rem] font-ivora"
+	{#if isShow}
+		<div class="px-[24px] py-[40px] max-w-[1600px] font-light" in:fade={{ duration: 2000 }}>
+			<!-- font perlu diganti -->
+			<p
+				class="text-3xl/loose md:text-5xl xl:text-7xl uppercase !leading-[4rem] md:!leading-[5rem] xl:!leading-[6rem] font-ivora"
+			>
+				IT ALL <i class="lowercase">started</i> FROM a Random <i class="lowercase">hello</i> from a stranger
+				12 Years ago AND THE REST IS JUST HISTORY
+			</p>
+		</div>
+	{/if}
+	{#if isShow}
+		<div
+			class="absolute bottom-0 flex flex-row overflow-x-scroll no-scrollbar max-h-[300px]"
+			in:fly={{ x: -1000, duration: 2000, delay: 500 }}
 		>
-			IT ALL <i class="lowercase">started</i> FROM a Random <i class="lowercase">hello</i> from a stranger
-			12 Years ago AND THE REST IS JUST HISTORY
-		</p>
-	</div>
-	<div class="absolute bottom-0 flex flex-row overflow-x-scroll no-scrollbar max-h-[300px]">
-		<Marquee pauseOnHover={true} speed={50}>
-			<img
-				class="max-h-[300px] w-auto"
-				src={pb.files.getUrl(data.main, data.main.marquee_1)}
-				alt="start"
-			/>
-			<img
-				class="max-h-[300px] w-auto"
-				src={pb.files.getUrl(data.main, data.main.marquee_2)}
-				alt="start"
-			/>
-			<img
-				class="max-h-[300px] w-auto"
-				src={pb.files.getUrl(data.main, data.main.marquee_3)}
-				alt="start"
-			/>
-			<img
-				class="max-h-[300px] w-auto"
-				src={pb.files.getUrl(data.main, data.main.marquee_4)}
-				alt="start"
-			/>
-			<img
-				class="max-h-[300px] w-auto"
-				src={pb.files.getUrl(data.main, data.main.marquee_5)}
-				alt="start"
-			/>
-		</Marquee>
-	</div>
+			<Marquee pauseOnHover={true} speed={50}>
+				<img
+					class="max-h-[300px] w-auto"
+					src={pb.files.getUrl(data.main, data.main.marquee_1)}
+					alt="start"
+				/>
+				<img
+					class="max-h-[300px] w-auto"
+					src={pb.files.getUrl(data.main, data.main.marquee_2)}
+					alt="start"
+				/>
+				<img
+					class="max-h-[300px] w-auto"
+					src={pb.files.getUrl(data.main, data.main.marquee_3)}
+					alt="start"
+				/>
+				<img
+					class="max-h-[300px] w-auto"
+					src={pb.files.getUrl(data.main, data.main.marquee_4)}
+					alt="start"
+				/>
+				<img
+					class="max-h-[300px] w-auto"
+					src={pb.files.getUrl(data.main, data.main.marquee_5)}
+					alt="start"
+				/>
+			</Marquee>
+		</div>
+	{/if}
 </div>
