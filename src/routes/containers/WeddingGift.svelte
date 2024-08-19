@@ -47,12 +47,12 @@
 >
 	{#if isShow}
 		<div
-			class="text-white text-center px-[24px] font-gordita tracking-wider"
+			class="text-white text-center px-[24px] tracking-wider"
 			in:fade={{ duration: 1000 }}
 		>
-			<p class="text-3xl/loose md:text-[40px]/loose font-ivora tracking-widest">WEDDING GIFT</p>
+			<p class="text-3xl/loose md:text-[40px]/loose font-ivora tracking-widest md:tracking-[0.2em]">WEDDING GIFT</p>
 			<p
-				class="font-gordita text-xs/loose md:text-sm/10 pt-8 pb-12 px-3 max-w-[380px] md:max-w-[530px]"
+				class="font-gordita text-xs/6 md:text-sm/10 pt-8 pb-12 px-3 max-w-[380px] md:max-w-[530px] tracking-widest"
 			>
 				WE REQUIRE ONLY YOUR PRESENCE, BUT IF YOU FEEL SO MOVED TO GIVE US A GIFT, WE WOULD BE VERY
 				GRATEFUL!
