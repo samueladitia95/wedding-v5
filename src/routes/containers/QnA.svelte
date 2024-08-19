@@ -46,15 +46,15 @@
 	export let data: PageData;
 </script>
 
-<div class="wrapper bg-mj-black relative flex !flex-col text-white justify-center">
+<div class="wrapper bg-mj-black relative flex !flex-col text-white justify-start">
 	<div class="relative min-h-48 min-w-full flex justify-center 2xl:min-w-2 2xl:self-center">
 		<img
-			class="object-cover md:hidden"
+			class="object-cover md:hidden lg:hidden"
 			src={pb.files.getUrl(data.main, data.main.qna_mobile)}
 			alt="1"
 		/>
 		<img
-			class="object-cover hidden md:block lg:hidden"
+			class="object-cover hidden sm:hidden md:block lg:hidden"
 			src={pb.files.getUrl(data.main, data.main.qna_tablet)}
 			alt="2"
 		/>
