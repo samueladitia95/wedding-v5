@@ -19,15 +19,13 @@
 	<div class="px-[24px] py-[40px] max-w-[1600px] font-light">
 		<!-- font perlu diganti -->
 		<p
-			class="text-3xl md:text-5xl xl:text-7xl uppercase !leading-[4rem] md:!leading-[5rem] xl:!leading-[6rem] font-ivora"
+			class="text-3xl/loose md:text-5xl xl:text-7xl uppercase !leading-[4rem] md:!leading-[5rem] xl:!leading-[6rem] font-ivora"
 		>
 			IT ALL <i class="lowercase">started</i> FROM a Random <i class="lowercase">hello</i> from a stranger
 			12 Years ago AND THE REST IS JUST HISTORY
 		</p>
 	</div>
-	<div
-		class="max-w-[1600px] absolute bottom-0 flex flex-row overflow-x-scroll no-scrollbar max-h-[300px]"
-	>
+	<div class="absolute bottom-0 flex flex-row overflow-x-scroll no-scrollbar max-h-[300px]">
 		<Marquee>
 			<img
 				class="max-h-[300px] w-auto"
