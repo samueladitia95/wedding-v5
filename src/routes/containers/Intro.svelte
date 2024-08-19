@@ -13,7 +13,7 @@
 		if (isInvitationOpened) {
 			setTimeout(() => {
 				isLoading = false;
-			}, 4000); // 2 seconds delay
+			}, 2000); // 2 seconds delay
 		}
 	}
 	const introLoadingText1 = 'The Wedding Of';
@@ -48,24 +48,25 @@
 				<div
 					class="z-20 w-screen flex flex-col justify-between py-[72px] px-[62px] md:px-44 xl:px-96 font-aboreto leading-loose"
 				>
-					<p class="text-white text-[16px] md:text-[24px] lg:text-[20px] text-center">
-						{#if !isLoading}
+					{#if !isLoading}
+						<p
+							class="text-white text-[16px] md:text-[24px] lg:text-[20px] text-center"
+							in:fade={{ duration: 2000, delay: 2000 }}
+						>
 							#sayJESStoMARCO
-						{/if}
-					</p>
+						</p>
+					{/if}
 					<div
 						class="text-white text-base/relaxed tracking-widest md:text-xl/relaxed lg:text-lg/relaxed text-center"
 					>
 						{#if isLoading}
-							<p class="pb-">
-								{introLoadingText1}
-							</p>
-							<p>
+							<p out:fade={{ duration: 1000, delay: 1000 }}>
+								{introLoadingText1} <br />
 								{introLoadingText2}
 							</p>
 						{/if}
 						{#if !isLoading}
-							<div class="font-ivora">
+							<div class="font-ivora" in:fade={{ duration: 2000, delay: 2000 }}>
 								{introMainText}
 							</div>
 						{/if}
