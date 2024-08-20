@@ -21,22 +21,22 @@
 	on:inview_change={handleChange}
 >
 	<div
-		class=" flex flex-col lg:grid lg:grid-flow-col lg:grid-cols-10 h-full min-h-screen text-mj-black justify-evenly md:justify-center lg:gap-[100px] px-6 py-32 md:py-32 lg:py-0"
+		class=" flex flex-col xl:grid xl:grid-flow-col xl:grid-cols-10 h-full min-h-screen text-mj-black justify-evenly md:justify-center xl:gap-[100px] px-6 py-32 md:py-32 xl:py-0"
 	>
 		<!-- Large screen -->
 		<div
-			class="relative col-span-5 min-w-[480px] hidden lg:flex justify-center items-center lg:-translate-y-12 lg:translate-x-12 xl:translate-x-24"
+			class="relative col-span-5 min-w-[480px] hidden xl:flex justify-center items-center xl:-translate-y-12 xl:translate-x-24"
 		>
 			<div>
 				{#if isShow}
 					<img
-						class="absolute top-12 translate-y-1/4 xl:-translate-x-1/2 -translate-x-1/4 left-0 hidden lg:block scale-[60%]"
+						class="absolute top-12 translate-y-1/4 xl:-translate-x-1/2 -translate-x-1/4 left-0 hidden xl:block scale-[60%]"
 						src={pb.files.getUrl(data.main, data.main.attire1_desktop)}
 						alt="1"
 						transition:fly={{ x: -400, duration: 1500 }}
 					/>
 					<img
-						class="absolute top-24 hidden lg:block scale-[60%] xl:-translate-x-1/2 -translate-x-1/4"
+						class="absolute top-24 hidden xl:block scale-[60%] xl:-translate-x-1/2 -translate-x-1/4"
 						src={pb.files.getUrl(data.main, data.main.attire2_desktop)}
 						alt="1"
 						transition:fly={{ y: -400, duration: 1500 }}
@@ -45,7 +45,7 @@
 			</div>
 		</div>
 		<!-- Medium screen -->
-		<div class="relative md:min-h-[400px] md:min-w-[400px] hidden md:block lg:hidden">
+		<div class="relative md:min-h-[400px] md:min-w-[400px] hidden md:block xl:hidden">
 			{#if isShow}
 				<img
 					class="absolute -left-[100px] scale-[75%]"
@@ -81,11 +81,11 @@
 
 		{#if isShow}
 			<div
-				class="flex flex-col items-center gap-[24px] lg:gap-[32px] mt-[400px] md:mt-0 md:pt-[100px] lg:pt-0 justify-center lg:col-span-5 xl:pl-32"
+				class="flex flex-col items-center gap-[24px] xl:gap-[32px] mt-[400px] md:mt-0 md:pt-[100px] xl:pt-0 justify-center xl:col-span-5 xl:pl-32"
 				in:fade={{ duration: 2000 }}
 			>
 				<p
-					class="text-3xl/loose md:text-[40px]/loose lg:text-5xl/loose tracking-widest font-ivora font-light"
+					class="text-3xl/loose md:text-[40px]/loose xl:text-5xl/loose tracking-widest font-ivora font-light"
 				>
 					THE ATTIRE
 				</p>
@@ -93,21 +93,11 @@
 					HOLY MATRIMONY & RECEPTION
 				</p>
 				<div class="flex gap-4 md:gap-6">
-					<div
-						class="size-8 md:size-10 border-[1px] border-[#7E7E7E]/50 rounded-full bg-[#C49B81]"
-					></div>
-					<div
-						class="size-8 md:size-10 border-[1px] border-[#7E7E7E]/50 rounded-full bg-[#D8BFAB]"
-					></div>
-					<div
-						class="size-8 md:size-10 border-[1px] border-[#7E7E7E]/50 rounded-full bg-[#FBE8D8]"
-					></div>
-					<div
-						class="size-8 md:size-10 border-[1px] border-[#7E7E7E]/50 rounded-full bg-[#A6A58F]"
-					></div>
-					<div
-						class="size-8 md:size-10 border-[1px] border-[#7E7E7E]/50 rounded-full bg-[#6C705F]"
-					></div>
+					<div class="size-8 md:size-10 border border-[#7E7E7E]/50 rounded-full bg-[#C49B81]"></div>
+					<div class="size-8 md:size-10 border border-[#7E7E7E]/50 rounded-full bg-[#D8BFAB]"></div>
+					<div class="size-8 md:size-10 border border-[#7E7E7E]/50 rounded-full bg-[#FBE8D8]"></div>
+					<div class="size-8 md:size-10 border border-[#7E7E7E]/50 rounded-full bg-[#A6A58F]"></div>
+					<div class="size-8 md:size-10 border border-[#7E7E7E]/50 rounded-full bg-[#6C705F]"></div>
 				</div>
 			</div>
 		{/if}
