@@ -68,7 +68,7 @@
 <QnA {data} />
 <div class="lg:hidden">
 	<Rsvp />
-	<Wishes />
+	<Wishes {data} />
 </div>
 <div class="bg-mj-sand hidden lg:flex lg:flex-row justify-center w-full">
 	<div class="grid grid-cols-2 w-full xl:min-w-[1440px]">
@@ -76,7 +76,7 @@
 			<Rsvp />
 		</div>
 		<div class="bg-mj-dark-sand flex justify-center pr-8">
-			<Wishes />
+			<Wishes {data} />
 		</div>
 	</div>
 </div>
