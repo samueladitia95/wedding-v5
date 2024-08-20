@@ -19,12 +19,13 @@ export const schemaRsvp = z
 				message: 'Email is Invalid'
 			}),
 		is_attending: z
-			.boolean({
+			.string({
 				required_error: 'is Attending is Required'
 			})
-			.default(false),
+			.default('No'),
 		plus_one: z.string(),
 		main_dish: z.string(),
+		food_allergies: z.string(),
 		wishes: z.string({
 			required_error: 'Wishes is Required'
 		}),

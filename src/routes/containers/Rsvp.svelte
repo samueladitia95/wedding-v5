@@ -1,32 +1,52 @@
 <script lang="ts">
 	import { inview, type ObserverEventDetails } from 'svelte-inview';
 	import { fade } from 'svelte/transition';
+	import { superForm, defaults } from 'sveltekit-superforms';
+	import { zod } from 'sveltekit-superforms/adapters';
 
 	import Input from '$lib/components/Input.svelte';
-	// import { superForm } from 'sveltekit-superforms/client';
 	import star from '$lib/assets/star.svg?raw';
-	import loading from '$lib/assets/loading.svg?raw';
+	// import loading from '$lib/assets/loading.svg?raw';
+	import { schemaRsvp } from '$lib/schema';
+	import { pb } from '$lib/pocketbase';
 
 	const rsvp_intro = 'KINDLY CONFIRM YOUR ATTENDANCE BY COMPLETING THE FORM PROVIDED BELOW:';
 	const rsvp_due_date = 'Before 2nd September 2024';
 	const rsvp_wishes =
 		'ALONGSIDE RSVP, PLEASE TAKE A MOMENT TO EXPRESS YOUR WARM REGARDS AND BEST WISHES.';
 
-	let isLoading: Boolean = false;
+	let isLoading: boolean = false;
+	// let isFinish: boolean = false;
 	let endScreen: Boolean = false;
-	function toggleLoading() {
-		isLoading = !isLoading; // Toggle the isLoading state
-		setTimeout(() => {
-			endScreen = true;
-			// Optionally, you might want to set isLoading back to false here if needed
-			isLoading = false;
-		}, 1500);
-	}
 
 	let isShow: boolean = false;
 	const handleChange = ({ detail }: CustomEvent<ObserverEventDetails>): void => {
 		if (!isShow && detail.inView) isShow = true;
 	};
+
+	const { form, errors, enhance, constraints } = superForm(defaults(zod(schemaRsvp)), {
+		SPA: true,
+		validators: zod(schemaRsvp),
+		onUpdate: async function onUpdate({ form }) {
+			if (form.valid) {
+				const body = {
+					project: 'default',
+					name: form.data.name,
+					phone: form.data.phone,
+					email: form.data.email,
+					is_attending: form.data.is_attending,
+					plus_one: form.data.plus_one,
+					main_dish: form.data.main_dish,
+					food_allergies: form.data.food_allergies,
+					wishes: form.data.wishes,
+					from: form.data.from
+				};
+				await pb.collection('rsvp_wedding_v5').create(body);
+				endScreen = true;
+				isLoading = false;
+			}
+		}
+	});
 </script>
 
 {#if !endScreen}
@@ -52,11 +72,29 @@
 					</p>
 					<p>{rsvp_wishes}</p>
 				</div>
-				<form>
-					<div class="flex flex-col gap-[24px] text-[14px]">
-						<Input name="full_name" label="Fill Your Name" />
-						<Input name="phone_number" label="Phone Number" />
-						<Input name="email" label="Email" />
+				<form use:enhance>
+					<div class="flex flex-col gap-6 text-sm">
+						<Input
+							name="name"
+							label="Fill Your Name"
+							bind:value={$form.name}
+							{...$constraints.name}
+							error={$errors.name}
+						/>
+						<Input
+							name="phone"
+							label="Phone Number"
+							bind:value={$form.phone}
+							{...$constraints.phone}
+							error={$errors.phone}
+						/>
+						<Input
+							name="email"
+							label="Email"
+							bind:value={$form.email}
+							{...$constraints.email}
+							error={$errors.email}
+						/>
 
 						<div class="py-[12px]">
 							<div class="font-editor-hand text-ca-blue text-[14px] flex">
@@ -66,26 +104,33 @@
 							<div class="flex gap-12 md:gap-28 w-full ml-3 mt-3">
 								<div class="flex gap-2 items-center">
 									<input
-										name="subject"
+										name="is_attending"
 										type="radio"
 										class="w-5 h-5 appearance-none border-2 border-white/20 rounded-full box-content checked:bg-white checked:ring-4 checked:ring-mj-sand checked:ring-inset"
+										value="Yes"
+										bind:group={$form.is_attending}
 									/>
 									<div class="text-ca-blue font-editor-hand">Yes</div>
 								</div>
 								<div class="flex gap-2 items-center">
 									<input
-										name="subject"
+										name="is_attending"
 										type="radio"
 										class="w-5 h-5 appearance-none border-2 border-white/20 rounded-full box-content checked:bg-white checked:ring-4 checked:ring-mj-sand checked:ring-inset"
+										value="No"
+										bind:group={$form.is_attending}
 									/>
 									<div class="text-ca-blue font-editor-hand">No</div>
 								</div>
 							</div>
 						</div>
 						<Input
-							name="plus1"
+							name="plus_one"
 							label="Are you bringing a +1?"
 							placeholder="If so, please let us know"
+							bind:value={$form.plus_one}
+							{...$constraints.plus_one}
+							error={$errors.plus_one}
 						/>
 
 						<div class="py-[12px]">
@@ -96,17 +141,21 @@
 							<div class="flex gap-12 md:gap-28 w-full ml-3 mt-3">
 								<div class="flex gap-2 items-center">
 									<input
-										name="mainDish"
+										name="main_dish"
 										type="radio"
 										class="w-5 h-5 appearance-none border-2 border-white/20 rounded-full box-content checked:bg-white checked:ring-4 checked:ring-mj-sand checked:ring-inset"
+										value="Beef"
+										bind:group={$form.main_dish}
 									/>
 									<div class="text-ca-blue font-editor-hand">Beef</div>
 								</div>
 								<div class="flex gap-2 items-center">
 									<input
-										name="mainDish"
+										name="main_dish"
 										type="radio"
 										class="w-5 h-5 appearance-none border-2 border-white/20 rounded-full box-content checked:bg-white checked:ring-4 checked:ring-mj-sand checked:ring-inset"
+										value="Chicken"
+										bind:group={$form.main_dish}
 									/>
 									<div class="text-ca-blue font-editor-hand">Chicken</div>
 								</div>
@@ -117,26 +166,33 @@
 								name="allergies"
 								label="Do you have any allergies & food restrictions?"
 								placeholder="If you have one, please let us know"
+								bind:value={$form.food_allergies}
+								{...$constraints.food_allergies}
+								error={$errors.food_allergies}
 							/>
-							<Input name="wishes" label="Wishes" placeholder="Write your wishes" />
+							<Input
+								name="wishes"
+								label="Wishes"
+								placeholder="Write your wishes"
+								bind:value={$form.wishes}
+								{...$constraints.wishes}
+								error={$errors.wishes}
+							/>
 							<Input
 								name="from"
 								label="From"
 								placeholder="Enter your name here to send your wishes."
+								bind:value={$form.from}
+								{...$constraints.from}
+								error={$errors.from}
 							/>
-							{#if !isLoading}
-								<button
-									class="w-full bg-mj-button-disabled text-mj-button-disabled-text py-[16px] rounded-[45px] hover:bg-white hover:text-mj-black transition-all duration-300 tracking-widest"
-									on:click={toggleLoading}>SUBMIT RSVP & WISHES</button
-								>
-								<!-- emulating button styling -->
-							{:else}
-								<button
-									class="w-full bg-mj-button-disabled text-mj-button-disabled-text py-[16px] rounded-[45px] hover:bg-white hover:text-mj-black transition-all duration-300 flex text-center justify-center gap-2 tracking-widest"
-									on:click={toggleLoading}
-									><span class="rotate">{@html loading}</span>LOADING...</button
-								>
-							{/if}
+							<button
+								class="w-full disabled:bg-mj-button-disabled disabled:text-mj-button-disabled-text py-4 rounded-full bg-white text-mj-black hover:bg-mj-black hover:text-white transition-all duration-300 tracking-widest"
+								disabled={isLoading}
+								type="submit"
+							>
+								SUBMIT RSVP & WISHES
+							</button>
 						</div>
 					</div>
 				</form>

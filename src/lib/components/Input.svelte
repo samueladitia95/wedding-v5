@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
-	import star from '$lib/assets/star.svg?raw';
+	import clsx from 'clsx';
+	// import star from '$lib/assets/star.svg?raw';
 
 	export let name: string;
 	export let label: string;
@@ -10,7 +11,13 @@
 	$: hasPlaceholder = !!placeholder;
 </script>
 
-<div class="relative h-11 w-full font-editor-hand">
+<div
+	class={clsx(
+		'relative h-11 w-full font-editor-hand',
+		'duration-300 transition-all',
+		error ? 'mb-4' : 'mb-0'
+	)}
+>
 	<input
 		placeholder={placeholder || label}
 		class={placeholder
@@ -19,6 +26,7 @@
 		bind:value
 		required
 		{name}
+		autocomplete="off"
 	/>
 	<div
 		class={`after:content[''] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none !overflow-visible truncate text-sm leading-tight text-white transition-all after:absolute after:-bottom-1.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-white after:transition-transform after:duration-300 peer-placeholder-shown:text-sm  peer-placeholder-shown:text-white peer-focus:text-sm peer-focus:leading-tight peer-focus:text-white peer-focus:after:scale-x-100 peer-focus:after:border-white ${hasPlaceholder ? 'leading-[4.25]' : 'peer-placeholder-shown:leading-[4.25]'}`}
