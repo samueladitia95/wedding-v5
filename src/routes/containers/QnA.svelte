@@ -30,11 +30,6 @@
 				'Yes! Please RSVP to ensure that you will be attending the dinner reception, so that we can arrange the seating accordingly.'
 		},
 		{
-			question: 'WHAT ACCOMMODATIONS ARE PROVIDED?',
-			answer:
-				'Flight ticket will not be provided. Hotel and round trip shuttle will be provided. Please check out the Travel Guide section.'
-		},
-		{
 			question: 'SHOULD I BRING A GIFT?',
 			answer:
 				'We are thrilled to have you celebrate with us, and while gifts are not necessary, we would be grateful if you choose to honor us with cash or angpao.'

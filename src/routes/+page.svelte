@@ -111,4 +111,4 @@
 	</div>
 {/if}
 
-<audio id="music-player" src={songUrl} bind:this={player} />
+<audio id="music-player" src={songUrl} bind:this={player} loop={true} />
