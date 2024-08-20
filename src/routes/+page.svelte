@@ -1,4 +1,7 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+	import { fade } from 'svelte/transition';
+
 	import Rsvp from './containers/Rsvp.svelte';
 	import Attire from './containers/Attire.svelte';
 	import WeddingGift from './containers/WeddingGift.svelte';
@@ -9,28 +12,48 @@
 	import Map from './containers/Map.svelte';
 	import Details from './containers/Details.svelte';
 	import TravelGuide from './containers/TravelGuide.svelte';
-	import type { PageData } from './$types';
 	import QnA from './containers/QnA.svelte';
 	import SaveTheDate from './containers/SaveTheDate.svelte';
-	import { onMount } from 'svelte';
-	// const state1: string = 'state1'; // ? state
-	// let prop1: string; // ? required props
-	// let prop2: string = 'prop2'; // ? props with default value
-	// $: computed1 = state1 * 2 // ? computed value
+
+	import type { PageData } from './$types';
+
+	import playButton from '$lib/assets/buttons/Play-enabled.svg';
+	import playButtonHovered from '$lib/assets/buttons/Play-hovered.svg';
+	import pauseButton from '$lib/assets/buttons/Pause-enable.svg';
+	import pauseButtonHovered from '$lib/assets/buttons/Pause-hovered.svg';
+
+	export let data: PageData;
 
 	let isInvitationOpened = false;
+	let player: HTMLAudioElement;
+	let songUrl: string = data.song || '';
+	let isPlaying = false;
+	let isHovered = false;
+
 	const openInvitation = () => {
 		isInvitationOpened = true;
+		isPlaying = true;
 	};
-	export let data: PageData;
+
+	const togglePlay = () => {
+		isPlaying = !isPlaying;
+	};
+
+	$: {
+		if (player) {
+			if (isPlaying) {
+				player.play();
+			} else {
+				player.pause();
+			}
+		}
+	}
 
 	onMount(() => {
 		document.body.classList.add('no-scrollbar');
 	});
 </script>
 
-<!-- <LetterOpener {openInvitation} {isInvitationOpened} /> -->
-<!-- {#if isInvitationOpened} -->
 <Intro {data} {isInvitationOpened} {openInvitation} />
 <Started {data} />
 <TogetherWith {data} />
@@ -60,4 +83,29 @@
 >
 	<p>Website Invitation by Another Chapter</p>
 </div>
-<!-- {/if} -->
+
+{#if isInvitationOpened}
+	<div class="z-[1000]" in:fade={{ duration: 2000 }}>
+		<div class="fixed left-8 bottom-4 z-[1000]">
+			<button
+				class="cursor-pointer z-[1000]"
+				on:click={togglePlay}
+				on:mouseenter={() => (isHovered = true)}
+				on:mouseleave={() => (isHovered = false)}
+			>
+				<img
+					src={isPlaying
+						? isHovered
+							? pauseButtonHovered
+							: pauseButton
+						: isHovered
+							? playButtonHovered
+							: playButton}
+					alt="Media Button"
+				/>
+			</button>
+		</div>
+	</div>
+{/if}
+
+<audio id="music-player" src={songUrl} bind:this={player} />
