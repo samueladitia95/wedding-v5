@@ -16,7 +16,7 @@
 		}
 	}
 	const introLoadingText1 = 'The Wedding Of';
-	const introLoadingText2 = 'Marco & Jessica';
+	const introLoadingText2 = 'MARCO & JESSICA';
 
 	const introMainText =
 		'Distance is not for the fearful, it is for the bold. It’s for those who are willing to spend a lot time  alone in exchange for a little time with the one they love.';
