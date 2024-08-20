@@ -33,13 +33,13 @@
 						class="absolute top-12 translate-y-1/4 xl:-translate-x-1/2 -translate-x-1/4 left-0 hidden xl:block scale-[60%]"
 						src={pb.files.getUrl(data.main, data.main.attire1_desktop)}
 						alt="1"
-						transition:fly={{ x: -400, duration: 1500 }}
+						transition:fade={{ duration: 1500 }}
 					/>
 					<img
 						class="absolute top-24 hidden xl:block scale-[60%] xl:-translate-x-1/2 -translate-x-1/4"
 						src={pb.files.getUrl(data.main, data.main.attire2_desktop)}
 						alt="1"
-						transition:fly={{ y: -400, duration: 1500 }}
+						transition:fade={{ duration: 1500 }}
 					/>
 				{/if}
 			</div>
