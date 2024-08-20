@@ -96,7 +96,7 @@
 							<div class="flex gap-12 md:gap-28 w-full ml-3 mt-3">
 								<div class="flex gap-2 items-center">
 									<input
-										name="subject"
+										name="mainDish"
 										type="radio"
 										class="w-5 h-5 appearance-none border-2 border-white/20 rounded-full box-content checked:bg-white checked:ring-4 checked:ring-mj-sand checked:ring-inset"
 									/>
@@ -104,7 +104,7 @@
 								</div>
 								<div class="flex gap-2 items-center">
 									<input
-										name="subject"
+										name="mainDish"
 										type="radio"
 										class="w-5 h-5 appearance-none border-2 border-white/20 rounded-full box-content checked:bg-white checked:ring-4 checked:ring-mj-sand checked:ring-inset"
 									/>
