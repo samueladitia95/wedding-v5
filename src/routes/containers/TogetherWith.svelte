@@ -133,7 +133,7 @@
 					in:fade={{ duration: 2000, delay: 500 }}
 				>
 					<img
-						class="h-[435px] max-w-[300px] rounded-[150px] object-cover"
+						class="h-[435px] max-w-[300px] rounded-[150px] object-cover object-[1px]"
 						src={pb.files.getUrl(data.main, data.main.together_desktop)}
 						alt="together"
 					/>
