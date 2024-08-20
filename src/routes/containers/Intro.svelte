@@ -46,7 +46,7 @@
 					alt="desktop-img"
 				/>
 				<div
-					class="z-20 w-screen flex flex-col justify-between py-[72px] px-[62px] md:px-44 xl:px-96 font-aboreto leading-loose"
+					class="z-20 w-screen flex flex-col justify-between py-[72px] px-[62px] md:px-44 xl:px-96 font-ivora leading-loose"
 				>
 					{#if !isLoading}
 						<p
@@ -60,8 +60,11 @@
 						class="text-white text-base/relaxed tracking-widest md:text-xl/relaxed lg:text-lg/relaxed text-center"
 					>
 						{#if isLoading}
-							<p out:fade={{ duration: 1000, delay: 1000 }}>
-								{introLoadingText1} <br />
+							<p class="font-aboreto" out:fade={{ duration: 1000, delay: 1000 }}>
+								{introLoadingText1}
+							</p>
+							<br />
+							<p class="font-ivora" out:fade={{ duration: 1000, delay: 1000 }}>
 								{introLoadingText2}
 							</p>
 						{/if}
