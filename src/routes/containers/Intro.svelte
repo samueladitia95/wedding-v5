@@ -15,7 +15,7 @@
 			}, 2000); // 2 seconds delay
 		}
 	}
-	const introLoadingText1 = 'The Wedding Of';
+	const introLoadingText1 = 'THE WEDDING OF';
 	const introLoadingText2 = 'MARCO & JESSICA';
 
 	const introMainText =
