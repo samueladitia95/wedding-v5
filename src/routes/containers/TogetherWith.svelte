@@ -29,11 +29,11 @@
 >
 	<!-- SMALL MEDIUM DISPLAY -->
 	<div
-		class="min-h-screen px-6 py-28 flex flex-col text-white text-center justify-center w-full gap-10 uppercase lg:hidden max-w-[1600px]"
+		class="min-h-screen px-6 py-28 flex flex-col text-white text-center justify-center w-full gap-10 uppercase xl:hidden max-w-[1600px]"
 	>
 		{#if isShow}
 			<p
-				class="text-sm md:text-base px-[70px] md:px-60 lg:px-72 font-gordita leading-loose tracking-widest"
+				class="text-sm md:text-base px-[70px] md:px-60 xl:px-72 font-gordita leading-loose tracking-widest"
 				in:fade={{ duration: 2000 }}
 			>
 				{togetherWith}
@@ -87,7 +87,9 @@
 		</div>
 
 		{#if isShow}
-			<p in:fade={{ duration: 2000, delay: 2500 }} class="font-gordita text-xs md:text-sm md:mt-14">{invite}</p>
+			<p in:fade={{ duration: 2000, delay: 2500 }} class="font-gordita text-xs md:text-sm md:mt-14">
+				{invite}
+			</p>
 		{/if}
 	</div>
 
@@ -103,7 +105,7 @@
 		gap-24
 		uppercase
 		hidden
-		lg:flex
+		xl:flex
 		w-screen"
 	>
 		{#if isShow}
