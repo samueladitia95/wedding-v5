@@ -219,8 +219,4 @@
 			transform: rotate(360deg);
 		}
 	}
-
-	.rotate {
-		animation: rotate 2s linear infinite;
-	}
 </style>
