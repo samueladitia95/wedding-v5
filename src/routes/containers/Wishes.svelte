@@ -14,7 +14,7 @@
 </script>
 
 <div
-	class="bg-mj-dark-sand min-h-screen max-h-screen overflow-auto w-full"
+	class="bg-mj-dark-sand min-h-screen max-h-screen overflow-auto no-scrollbar w-full"
 	use:inview={{
 		rootMargin: '-100px',
 		unobserveOnEnter: true
