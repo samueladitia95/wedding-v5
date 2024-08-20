@@ -33,7 +33,7 @@
 	>
 		{#if isShow}
 			<p
-				class="text-sm md:text-base px-[70px] md:px-60 lg:px-72 font-gordita leading-loose"
+				class="text-sm md:text-base px-[70px] md:px-60 lg:px-72 font-gordita leading-loose tracking-widest"
 				in:fade={{ duration: 2000 }}
 			>
 				{togetherWith}
@@ -59,8 +59,8 @@
 					class="flex flex-col gap-6 font-ivora"
 					in:fly={{ x: -1000, duration: 2000, delay: 1000 }}
 				>
-					<p class="text-3xl md:text-[40px]">{groom}</p>
-					<p class="text-xs md:text-base">{groomFamily}</p>
+					<p class="font-light text-3xl md:text-[40px] tracking-[0.2em]">{groom}</p>
+					<p class="font-gordita text-[11px] md:text-base">{groomFamily}</p>
 				</div>
 			{/if}
 
@@ -78,16 +78,16 @@
 					class="flex flex-col gap-6 font-ivora"
 					in:fly={{ x: -1000, duration: 2000, delay: 2000 }}
 				>
-					<p class="text-[32px] md:text-[40px]">
+					<p class="font-light text-[32px] md:text-[40px] tracking-[0.2em]">
 						{bride}
 					</p>
-					<p class="text-xs md:text-base">{brideFamily}</p>
+					<p class="font-gordita text-[11px] md:text-base">{brideFamily}</p>
 				</div>
 			{/if}
 		</div>
 
 		{#if isShow}
-			<p in:fade={{ duration: 2000, delay: 2500 }} class="text-xs md:text-sm md:mt-14">{invite}</p>
+			<p in:fade={{ duration: 2000, delay: 2500 }} class="font-gordita text-xs md:text-sm md:mt-14">{invite}</p>
 		{/if}
 	</div>
 
