@@ -93,22 +93,22 @@
 
 	<!-- LARGE DISPLAY -->
 	<div
-		class="h-screen
-			px-[24px]
-			py-[112px]
-			flex-col
-			text-white
-			text-center
-			justify-center
-			gap-[96px]
-			uppercase
-			hidden
-			lg:flex
-			w-screen"
+		class="h-[110vh]
+		px-6
+		py-28
+		flex-col
+		text-white
+		text-center
+		justify-center
+		gap-24
+		uppercase
+		hidden
+		lg:flex
+		w-screen"
 	>
 		{#if isShow}
 			<p
-				class="text-base max-w-[300px] self-center font-gordita tracking-[0.3em] leading-9 text-center"
+				class="text-base max-w-[300px] self-center font-gordita tracking-[0.2em] leading-9 text-center"
 				in:fade={{ duration: 2000 }}
 			>
 				{togetherWith}
@@ -121,7 +121,7 @@
 					class="flex flex-col gap-5 col-span-4"
 					in:fly={{ x: -1000, duration: 2000, delay: 500 }}
 				>
-					<p class="text-4xl font-ivora font-light tracking-widest">{groom}</p>
+					<p class="text-4xl font-ivora font-light tracking-[0.2em]">{groom}</p>
 					<p class="text-sm font-gordita tracking-widest">{groomFamily}</p>
 				</div>
 			{/if}
@@ -142,10 +142,10 @@
 					class="flex flex-col gap-[20px] col-span-4"
 					in:fly={{ x: 1000, duration: 2000, delay: 500 }}
 				>
-					<p class="text-[40px] font-ivora font-light">
+					<p class="text-[40px] font-ivora font-light tracking-[0.2em]">
 						{bride}
 					</p>
-					<p class="text-sm font-gordita">{brideFamily}</p>
+					<p class="text-sm font-gordita tracking-[0.2em]">{brideFamily}</p>
 				</div>
 			{/if}
 		</div>
