@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { inview, type ObserverEventDetails } from 'svelte-inview';
 	import { fade } from 'svelte/transition';
+	import { invalidate } from '$app/navigation';
 	import { superForm, defaults } from 'sveltekit-superforms';
 	import { zod } from 'sveltekit-superforms/adapters';
 
@@ -44,6 +45,7 @@
 				await pb.collection('rsvp_wedding_v5').create(body);
 				endScreen = true;
 				isLoading = false;
+				invalidate('https://dev1.samueladitia.com/api/collections/rsvp_wedding_v5/records');
 			}
 		}
 	});
