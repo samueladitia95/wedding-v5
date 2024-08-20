@@ -82,7 +82,7 @@
 		</div>
 	{:else}
 		<div
-			class="min-h-screen flex flex-col justify-evenly items-center w-full"
+			class="font-ivora tracking-[0.2em] min-h-screen flex flex-col justify-evenly items-center w-full"
 			out:fade={{ duration: 2000 }}
 		>
 			<div></div>
