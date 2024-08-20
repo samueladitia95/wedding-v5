@@ -33,6 +33,7 @@
 	const openInvitation = () => {
 		isInvitationOpened = true;
 		isPlaying = true;
+		document.body.classList.remove('overflow-hidden');
 	};
 
 	const togglePlay = () => {
@@ -51,6 +52,7 @@
 
 	onMount(() => {
 		document.body.classList.add('no-scrollbar');
+		document.body.classList.add('overflow-hidden');
 	});
 </script>
 
