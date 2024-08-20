@@ -2,7 +2,6 @@
 	import type { PageData } from '../$types';
 	import { pb } from '$lib/pocketbase';
 	export let data: PageData;
-	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import PrimaryButton from '$lib/components/PrimaryButton.svelte';
 
@@ -28,7 +27,7 @@
 
 <div class="bg-mj-beige min-h-screen">
 	{#if isInvitationOpened}
-		<div class="flex justify-center relative" in:fade={{ duration: 2000, delay: 2000 }}>
+		<div class="flex justify-center relative" in:fade={{ duration: 1500, delay: 1750 }}>
 			<div class="min-h-screen flex justify-center relative">
 				<img
 					class="absolute top-0 left-0 md:hidden h-screen w-screen object-cover"
@@ -50,26 +49,26 @@
 				>
 					{#if !isLoading}
 						<p
-							class="text-white text-[16px] md:text-[24px] lg:text-[20px] text-center"
-							in:fade={{ duration: 2000, delay: 2000 }}
+							class="text-white text-base md:text-2xl lg:text-2xl text-center"
+							in:fade={{ duration: 2000, delay: 2750 }}
 						>
 							#sayJESStoMARCO
 						</p>
 					{/if}
 					<div
-						class="text-white text-base/relaxed tracking-widest md:text-xl/relaxed lg:text-lg/relaxed text-center"
+						class="text-white text-base/relaxed md:text-xl/relaxed lg:text-lg/relaxed text-center tracking-widest"
 					>
 						{#if isLoading}
-							<p class="font-aboreto" out:fade={{ duration: 1000, delay: 1000 }}>
+							<p class="font-aboreto" out:fade={{ duration: 2000, delay: 750 }}>
 								{introLoadingText1}
 							</p>
 							<br />
-							<p class="font-ivora" out:fade={{ duration: 1000, delay: 1000 }}>
+							<p class="font-ivora text-3xl md:text-3xl lg:text-4xl" out:fade={{ duration: 2000, delay: 750 }}>
 								{introLoadingText2}
 							</p>
 						{/if}
 						{#if !isLoading}
-							<div class="font-ivora" in:fade={{ duration: 2000, delay: 2000 }}>
+							<div class="font-ivora text-base md:text-xl xl:text-2xl" in:fade={{ duration: 2000, delay: 2750 }}>
 								{introMainText}
 							</div>
 						{/if}
