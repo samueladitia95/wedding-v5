@@ -51,13 +51,13 @@
 	}
 
 	onMount(() => {
-		// document.body.classList.add('no-scrollbar');
-		// document.body.classList.add('overflow-hidden');
-		// window.scrollTo(0, 0);
+		document.body.classList.add('no-scrollbar');
+		document.body.classList.add('overflow-hidden');
+		window.scrollTo(0, 0);
 	});
 </script>
 
-<!-- <Intro {data} {isInvitationOpened} {openInvitation} /> -->
+<Intro {data} {isInvitationOpened} {openInvitation} />
 <Started {data} />
 <TogetherWith {data} />
 <SaveTheDate />

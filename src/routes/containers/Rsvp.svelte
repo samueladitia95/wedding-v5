@@ -206,8 +206,10 @@
 		class="bg-mj-sand2 min-h-screen py-[80px] px-[24px] items-center flex flex-col justify-center"
 	>
 		<div class="flex flex-col text-center text-white gap-3 max-w-[800px]">
-			<h1 class="text-[40px] px-[20px]">THANK YOU FOR YOUR RSVP AND WISHES!</h1>
-			<p class="text-[12px] px-[32px]">WE WILL CONTACT YOU FOR MORE INFORMATION AND DETAILS</p>
+			<h1 class="text-[40px] px-[20px] font-ivora">THANK YOU FOR YOUR RSVP AND WISHES!</h1>
+			<p class="text-[12px] px-[32px] font-gordita">
+				WE WILL CONTACT YOU FOR MORE INFORMATION AND DETAILS
+			</p>
 		</div>
 	</div>
 {/if}
