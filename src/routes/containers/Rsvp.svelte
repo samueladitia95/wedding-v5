@@ -53,7 +53,7 @@
 
 {#if !endScreen}
 	<div
-		class="bg-mj-sand2 min-h-screen py-[80px] px-[24px] flex lg:justify-center w-full font-gordita"
+		class="bg-mj-sand2 min-h-screen py-[80px] px-[24px] flex xl:justify-center w-full font-gordita"
 		use:inview={{
 			rootMargin: '-100px',
 			unobserveOnEnter: true
@@ -61,7 +61,7 @@
 		on:inview_change={handleChange}
 	>
 		{#if isShow}
-			<div class="flex flex-col text-white lg:max-w-[800px] w-full" in:fade={{ duration: 1000 }}>
+			<div class="flex flex-col text-white xl:max-w-[800px] w-full" in:fade={{ duration: 1000 }}>
 				<h1
 					class="text-[32px] md:text-[40px]/loose pb-[24px] tracking-widest font-ivora font-light"
 				>

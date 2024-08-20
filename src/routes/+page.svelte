@@ -66,11 +66,11 @@
 <TravelGuide {data} />
 <Attire {data} />
 <QnA {data} />
-<div class="lg:hidden">
+<div class="xl:hidden">
 	<Rsvp />
 	<Wishes {data} />
 </div>
-<div class="bg-mj-sand hidden lg:flex lg:flex-row justify-center w-full">
+<div class="bg-mj-sand hidden xl:flex xl:flex-row justify-center w-full">
 	<div class="grid grid-cols-2 w-full xl:min-w-[1440px]">
 		<div class="bg-mj-sand2 flex flex-row justify-end pl-8">
 			<Rsvp />
