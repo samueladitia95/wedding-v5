@@ -22,7 +22,7 @@
 			image: holyMatrimony,
 			name: 'HOLY MATRIMONY',
 			condition: '(Guests are to be seated by 15:30 PM)',
-			condition2: 'p.s: Children under 5 is not allowed',
+			condition2: 'p.s: Children under 5 are not allowed',
 			time: '16:00 PM (WITA)',
 			location: 'CEREMONIAL PLAZA, MAYA UBUD'
 		},
