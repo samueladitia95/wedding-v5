@@ -120,6 +120,18 @@
 						<div class="flex flex-col lg:justify-evenly lg:h-36 gap-4">
 							<p class="text-xs md:text-base font-bold">{guides[1].conditional2}</p>
 							<p class="text-xs md:text-sm/loose whitespace-pre-line leading-loose text-center">
+								ANANDADARA UBUD RESORT <br /> *Breakfast included <br /> <i class="font-timesNewRoman normal-case">(Marco's Family)</i>
+							</p>
+							<div>
+								<GetLocationButton location="https://maps.app.goo.gl/YRM7ZgejsRxvkfrv9" />
+							</div>
+						</div>
+
+						<img src={divider} alt="1" />
+
+						<div class="flex flex-col lg:justify-evenly lg:h-36 gap-4">
+							<p class="text-xs md:text-base font-bold">{guides[1].conditional2}</p>
+							<p class="text-xs md:text-sm/loose whitespace-pre-line leading-loose text-center">
 								MAYA UBUD <br /> *Breakfast included
 							</p>
 							<div>
@@ -133,7 +145,7 @@
 			{#if isShow}
 				<!-- POINT 3 -->
 				<div
-					class="flex flex-col justify-center items-center uppercase gap-10"
+					class="flex flex-col justify-center items-center uppercase gap-10 lg:mt-14"
 					transition:fly={{ x: -400, duration: 1500, delay: 3000 }}
 				>
 					<img src={guides[2].image} alt="1" />
