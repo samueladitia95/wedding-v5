@@ -123,7 +123,7 @@
 								ANANDADARA UBUD RESORT <br /> *Breakfast included <br /> <i class="font-timesNewRoman normal-case">(Marco's Family)</i>
 							</p>
 							<div>
-								<GetLocationButton location="https://maps.app.goo.gl/YRM7ZgejsRxvkfrv9" />
+								<GetLocationButton location="https://maps.app.goo.gl/p5LGEcH7fkV6ahfz7" />
 							</div>
 						</div>
 
