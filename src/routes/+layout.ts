@@ -1,4 +1,7 @@
 import { pb } from '$lib/pocketbase';
+import { superValidate } from "sveltekit-superforms/server";
+import { schemaRsvp } from '$lib/schema';
+import { zod } from "sveltekit-superforms/adapters";
 import type { LayoutLoad } from './$types';
 
 type Wish = {
@@ -8,6 +11,7 @@ type Wish = {
 };
 
 export const load: LayoutLoad = async () => {
+	const form = await superValidate(zod(schemaRsvp));
 	const main = await pb.collection('wedding_v5').getFirstListItem('project="default"');
 	const wishes = await pb.collection('rsvp_wedding_v5').getFullList({
 		filter: 'project="default"',
@@ -33,6 +37,7 @@ export const load: LayoutLoad = async () => {
 	}
 
 	return {
+		form,
 		main,
 		song,
 		wishes: wishedFormated

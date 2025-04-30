@@ -80,7 +80,7 @@
 		/>
 
 		{#if error && error.length}
-			<div transition:fly={{ y: -20, duration: 300 }} class="text-xs text-error pt-2">
+			<div transition:fly={{ y: -20, duration: 300 }} class="text-xs text-mj-error pt-2">
 				{error[0]}
 			</div>
 		{/if}

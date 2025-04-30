@@ -1,60 +1,78 @@
 <script lang="ts">
 	import { inview, type ObserverEventDetails } from 'svelte-inview';
 	import { fade } from 'svelte/transition';
-	import { invalidate } from '$app/navigation';
-	import { superForm, defaults } from 'sveltekit-superforms';
+	// import { invalidate } from '$app/navigation';
+	import { superForm } from 'sveltekit-superforms/client';
 	import { zod } from 'sveltekit-superforms/adapters';
-
+	import { fly } from 'svelte/transition';
 	import Input from '$lib/components/Input.svelte';
 	import star from '$lib/assets/star.svg?raw';
 	// import loading from '$lib/assets/loading.svg?raw';
 	import { schemaRsvp } from '$lib/schema';
-	import { pb } from '$lib/pocketbase';
+	// import { pb } from '$lib/pocketbase';
+	import { toast } from '@zerodevx/svelte-toast';
+	import { invalidateAll } from '$app/navigation';
+	import type { LayoutData } from '../../routes/$types';
+
+	export let data: LayoutData;
 
 	const rsvp_intro = 'KINDLY CONFIRM YOUR ATTENDANCE BY COMPLETING THE FORM PROVIDED BELOW:';
 	const rsvp_due_date = 'Before 15th May 2025';
 	const rsvp_wishes =
 		'ALONGSIDE RSVP, PLEASE TAKE A MOMENT TO EXPRESS YOUR WARM REGARDS AND BEST WISHES.';
 
-	let isLoading: boolean = false;
-	// let isFinish: boolean = false;
-	let endScreen: Boolean = false;
-
 	let isShow: boolean = false;
+	let isSuccess: boolean = false;
 
-	const guestPaxLimit: number = 2;
+	const guestPaxLimit: number = 4;
 	const handleChange = ({ detail }: CustomEvent<ObserverEventDetails>): void => {
 		if (!isShow && detail.inView) isShow = true;
 	};
 
-	const { form, errors, enhance, constraints } = superForm(defaults(zod(schemaRsvp)), {
+	const { form, errors, enhance, constraints } = superForm(data.form, {
 		SPA: true,
+		validationMethod: 'onblur',
 		validators: zod(schemaRsvp),
 		onUpdate: async function onUpdate({ form }) {
 			if (form.valid) {
-				const body = {
-					project: 'default',
-					name: form.data.name,
-					phone: form.data.phone,
-					email: form.data.email,
-					is_attending: form.data.is_attending,
-					total_guests: form.data.total_guests,
-					plus_one: form.data.plus_one,
-					main_dish: form.data.main_dish,
-					food_allergies: form.data.food_allergies,
-					wishes: form.data.wishes,
-					from: form.data.from
-				};
-				await pb.collection('rsvp_wedding_v5').create(body);
-				endScreen = true;
-				isLoading = false;
-				invalidate('https://dev1.samueladitia.com/api/collections/rsvp_wedding_v5/records');
+				isSuccess = true;
+				invalidateAll();
+			} else {
+				toast.push('Please Try Again', {
+					duration: 10000
+				});
 			}
 		}
 	});
+	// const { form, errors, enhance, constraints } = superForm(defaults(zod(schemaRsvp)), {
+	// 	SPA: true,
+	// 	validators: zod(schemaRsvp),
+	// 	onUpdate: async function onUpdate({ form }) {
+	// 		if (form.valid) {
+	// 			const body = {
+	// 				project: 'default',
+	// 				name: form.data.name,
+	// 				phone: form.data.phone,
+	// 				email: form.data.email,
+	// 				is_attending: form.data.is_attending,
+	// 				total_guests: form.data.total_guests,
+	// 				plus_one: form.data.plus_one,
+	// 				main_dish: form.data.main_dish,
+	// 				food_allergies: form.data.food_allergies,
+	// 				wishes: form.data.wishes,
+	// 				from: form.data.from
+	// 			};
+	// 			// await pb.collection('rsvp_wedding_v5').create(body);
+	// 			console.log(form)
+	// 			endScreen = true;
+	// 			isLoading = false;
+	// 			invalidate('https://dev1.samueladitia.com/api/collections/rsvp_wedding_v5/records');
+	// 		}
+	// 	}
+	// });
 </script>
 
-{#if !endScreen}
+{#if !isSuccess}
 	<div
 		class="bg-mj-sand2 min-h-screen py-[80px] px-[24px] flex xl:justify-center w-full font-gordita"
 		use:inview={{
@@ -77,7 +95,7 @@
 					</p>
 					<p>{rsvp_wishes}</p>
 				</div>
-				<form use:enhance>
+				<form use:enhance method="POST" action="/">
 					<div class="flex flex-col gap-6 text-sm">
 						<Input
 							name="name"
@@ -132,26 +150,63 @@
 								</div>
 							</div>
 						</div>
-						
-						{#if $form.is_attending === "Yes" && guestPaxLimit > 1}
-						<div class="flex flex-col w-full h-full">
-							<div class="font-editor-hand font-normal text-white">
-								How many guests will be joining you?
+
+						{#if $form.is_attending === 'Yes' && guestPaxLimit > 1}
+							<div class="flex flex-col w-full h-full">
+								<div class="font-editor-hand font-normal text-white">
+									How many guests will be joining you?
+								</div>
+								<div class="w-full mt-3">
+									<select
+										name="total_guests"
+										class="w-full text-black border-2 border-ring rounded-lg p-2"
+										bind:value={$form.total_guests}
+									>
+										<option value={0} disabled selected>--</option>
+										{#each Array(guestPaxLimit) as _, i}
+											<option value={i + 1}>{i + 1}</option>
+										{/each}
+									</select>
+								</div>
 							</div>
-							<div class="w-full mt-3">
-								<select
-									name="total_guests"
-									class="w-full text-black border-2 border-ring rounded-lg p-2"
-									bind:value={$form.total_guests}
-								>
-									<option value={0} disabled selected>--</option>
-									{#each Array(guestPaxLimit) as _, i}
-										<option value={i + 1}>{i + 1}</option>
+						{/if}
+
+						{#if $form.total_guests > 0}
+							<div class="flex flex-col w-full h-full">
+								<div class="font-jakarta font-light text-white">
+									Please provide the name of your guests
+								</div>
+								<div class="w-full mt-3">
+									{#each Array.from({ length: $form.total_guests }) as _, index}
+										<label class="text-sm text-placeholder-text" for={`guest_names[${index}]`}>
+											{`Guest ${index + 1}`}
+											<span class="text-error">*</span>
+										</label>
+										<div class="relative mt-3">
+											<input
+												type="text"
+												placeholder="Fill Your Guest Name"
+												class="h-11 w-full border border-input-border bg-white rounded-md px-4 text-black outline-none transition-all focus:border-placeholder-text disabled:bg-gray-200"
+												required
+												autocomplete="off"
+												name="guest_names"
+												bind:value={$form.guest_names[index]}
+											/>
+
+											{#if $errors.guest_names && $errors.guest_names?.[index]}
+												<div
+													transition:fly={{ y: -20, duration: 300 }}
+													class="text-xs text-error pt-2"
+												>
+													{$errors.guest_names[index]}
+												</div>
+											{/if}
+										</div>
+										<br />
 									{/each}
-								</select>
+								</div>
 							</div>
-						</div>
-					{/if}
+						{/if}
 
 						<!-- <Input
 							name="plus_one"
@@ -217,7 +272,7 @@
 							/>
 							<button
 								class="w-full disabled:bg-mj-button-disabled disabled:text-mj-button-disabled-text py-4 rounded-full bg-white text-mj-black hover:bg-mj-black hover:text-white transition-all duration-300 tracking-widest"
-								disabled={isLoading}
+								disabled={isSuccess}
 								type="submit"
 							>
 								SUBMIT RSVP & WISHES

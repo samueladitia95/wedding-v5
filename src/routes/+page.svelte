@@ -15,14 +15,14 @@
 	import QnA from './containers/QnA.svelte';
 	import SaveTheDate from './containers/SaveTheDate.svelte';
 
-	import type { PageData } from './$types';
+	import type { LayoutData } from './$types';
 
 	import playButton from '$lib/assets/buttons/Play-enabled.svg';
 	import playButtonHovered from '$lib/assets/buttons/Play-hovered.svg';
 	import pauseButton from '$lib/assets/buttons/Pause-enable.svg';
 	import pauseButtonHovered from '$lib/assets/buttons/Pause-hovered.svg';
 
-	export let data: PageData;
+	export let data: LayoutData;
 
 	let isInvitationOpened = false;
 	let player: HTMLAudioElement;
@@ -67,13 +67,13 @@
 <Attire {data} />
 <QnA {data} />
 <div class="xl:hidden">
-	<Rsvp />
+	<Rsvp {data} />
 	<Wishes {data} />
 </div>
 <div class="bg-mj-sand hidden xl:flex xl:flex-row justify-center w-full">
 	<div class="grid grid-cols-2 w-full xl:min-w-[1440px]">
 		<div class="bg-mj-sand2 flex flex-row justify-end pl-8">
-			<Rsvp />
+			<Rsvp {data} />
 		</div>
 		<div class="bg-mj-dark-sand flex justify-center pr-8">
 			<Wishes {data} />

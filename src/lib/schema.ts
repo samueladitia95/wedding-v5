@@ -24,6 +24,7 @@ export const schemaRsvp = z
 			})
 			.default('No'),
 		total_guests: z.number().default(0),
+		guest_names: z.string().array().optional().default([]),
 		plus_one: z.string(),
 		main_dish: z.string(),
 		food_allergies: z.string(),
