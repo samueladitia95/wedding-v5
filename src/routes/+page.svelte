@@ -62,7 +62,7 @@
 <TogetherWith {data} />
 <SaveTheDate />
 <!-- <Map {data} /> -->
-<!-- <Details /> -->
+<Details />
 <!-- <TravelGuide {data} /> -->
 <Attire {data} />
 <QnA {data} />
