@@ -10,24 +10,15 @@
 		{
 			question: 'WHAT SHOULD I WEAR?',
 			answer:
-				'We kindly request that you dress in formal wear for our wedding.  A floor-length gown, sophisticated cocktail dress for ladies.  Men are kindly requested to suit up and leave their t-shirts, jeans, and slippers at home.',
-			conditional: '*Please refrain from wearing white, that’s reserved for the bride.',
+				'All White – Chic & Effortless;',
+			conditional: '',
 			conditional2:
-				'If you have any questions about the dress code, please don’t hesitate to contact us. '
+				'silk, and soft cottons – flowy dresses & relaxed suits. '
 		},
 		{
 			question: 'CAN I BRING A +1?',
 			answer:
-				'Please note that this invitation is valid for one person, unless you have been informed otherwise personally.'
-		},
-		{
-			question: 'WILL THE WEDDING BE INDOOR OR OUTDOOR?',
-			answer: 'Events will be held outdoors, except Tea Pai Ceremony.'
-		},
-		{
-			question: 'WILL THE DINNER RECEPTION BE SEATED?',
-			answer:
-				'Yes! Please RSVP to ensure that you will be attending the dinner reception, so that we can arrange the seating accordingly.'
+				'Please note that this invitation is valid for one person,  unless you have been informed otherwise personally.'
 		},
 		{
 			question: 'SHOULD I BRING A GIFT?',

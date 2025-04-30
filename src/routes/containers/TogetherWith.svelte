@@ -7,9 +7,9 @@
 	export let data: PageData;
 	const togetherWith = 'Together with their loving families';
 	const groom = 'Hendro Marco';
-	const groomFamily = 'SON OF THOMAS ALLIANTO (+) & HUANG CHIN CHIN';
+	const groomFamily = '';
 	const bride = 'JESSICA TEGUH';
-	const brideFamily = 'DAUGHTER OF JIMMY TEGUH & ROYANI TAIB';
+	const brideFamily = '';
 	const invite = 'INVITE YOU TO THEIR WEDDING';
 
 	let isShow: boolean = false;

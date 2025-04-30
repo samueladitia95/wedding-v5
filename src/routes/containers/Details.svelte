@@ -12,11 +12,11 @@
 
 	const items = [
 		{
-			image: teaPot,
-			name: 'TEA PAI CEREMONY',
-			condition: '(Family Only)',
-			time: '12:00 PM (WITA)',
-			location: 'THE LOUNGE, MAYA UBUD'
+		image: reception,
+			name: 'INTIMATE LUNCH',
+			condition: '',
+			time: '12:00 PM (SGT)',
+			location: '1300 EAST COAST PARKWAY, EAST COAST PARK AREA F, SINGAPORE 468996 (SEAFONT ALFRESCO)',
 		},
 		{
 			image: holyMatrimony,

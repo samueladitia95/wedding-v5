@@ -12,7 +12,7 @@
 	import { pb } from '$lib/pocketbase';
 
 	const rsvp_intro = 'KINDLY CONFIRM YOUR ATTENDANCE BY COMPLETING THE FORM PROVIDED BELOW:';
-	const rsvp_due_date = 'Before 2nd September 2024';
+	const rsvp_due_date = 'Before 15th May 2025';
 	const rsvp_wishes =
 		'ALONGSIDE RSVP, PLEASE TAKE A MOMENT TO EXPRESS YOUR WARM REGARDS AND BEST WISHES.';
 
@@ -21,6 +21,8 @@
 	let endScreen: Boolean = false;
 
 	let isShow: boolean = false;
+
+	const guestPaxLimit: number = 2;
 	const handleChange = ({ detail }: CustomEvent<ObserverEventDetails>): void => {
 		if (!isShow && detail.inView) isShow = true;
 	};
@@ -36,6 +38,7 @@
 					phone: form.data.phone,
 					email: form.data.email,
 					is_attending: form.data.is_attending,
+					total_guests: form.data.total_guests,
 					plus_one: form.data.plus_one,
 					main_dish: form.data.main_dish,
 					food_allergies: form.data.food_allergies,
@@ -82,6 +85,7 @@
 							bind:value={$form.name}
 							{...$constraints.name}
 							error={$errors.name}
+							isRequired
 						/>
 						<Input
 							name="phone"
@@ -89,6 +93,7 @@
 							bind:value={$form.phone}
 							{...$constraints.phone}
 							error={$errors.phone}
+							isRequired
 						/>
 						<Input
 							name="email"
@@ -96,6 +101,7 @@
 							bind:value={$form.email}
 							{...$constraints.email}
 							error={$errors.email}
+							isRequired
 						/>
 
 						<div class="py-[12px]">
@@ -126,16 +132,37 @@
 								</div>
 							</div>
 						</div>
-						<Input
+						
+						{#if $form.is_attending === "Yes" && guestPaxLimit > 1}
+						<div class="flex flex-col w-full h-full">
+							<div class="font-editor-hand font-normal text-white">
+								How many guests will be joining you?
+							</div>
+							<div class="w-full mt-3">
+								<select
+									name="total_guests"
+									class="w-full text-black border-2 border-ring rounded-lg p-2"
+									bind:value={$form.total_guests}
+								>
+									<option value={0} disabled selected>--</option>
+									{#each Array(guestPaxLimit) as _, i}
+										<option value={i + 1}>{i + 1}</option>
+									{/each}
+								</select>
+							</div>
+						</div>
+					{/if}
+
+						<!-- <Input
 							name="plus_one"
 							label="Are you bringing a +1?"
-							placeholder="If so, please let us know"
+							secondaryLabel="If so, please let us know"
 							bind:value={$form.plus_one}
 							{...$constraints.plus_one}
 							error={$errors.plus_one}
-						/>
+						/> -->
 
-						<div class="py-[12px]">
+						<!-- <div class="py-[12px]">
 							<div class="font-editor-hand text-ca-blue text-[14px] flex">
 								Please Select Your Main Dish &nbsp
 								<p class="text-mj-error max-w-[8px] -translate-y-1">{@html star}</p>
@@ -162,20 +189,20 @@
 									<div class="text-ca-blue font-editor-hand">Chicken</div>
 								</div>
 							</div>
-						</div>
+						</div> -->
 						<div class="flex flex-col gap-[36px]">
-							<Input
+							<!-- <Input
 								name="allergies"
 								label="Do you have any allergies & food restrictions?"
 								placeholder="If you have one, please let us know"
 								bind:value={$form.food_allergies}
 								{...$constraints.food_allergies}
 								error={$errors.food_allergies}
-							/>
+							/> -->
 							<Input
 								name="wishes"
 								label="Wishes"
-								placeholder="Write your wishes"
+								secondaryLabel="Write your wishes"
 								bind:value={$form.wishes}
 								{...$constraints.wishes}
 								error={$errors.wishes}
@@ -183,7 +210,7 @@
 							<Input
 								name="from"
 								label="From"
-								placeholder="Enter your name here to send your wishes."
+								secondaryLabel="Wishes from?"
 								bind:value={$form.from}
 								{...$constraints.from}
 								error={$errors.from}

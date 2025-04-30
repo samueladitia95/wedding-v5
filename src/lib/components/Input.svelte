@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
 	import { fly } from 'svelte/transition';
 	import clsx from 'clsx';
 	// import star from '$lib/assets/star.svg?raw';
@@ -32,9 +32,9 @@
 		class={`after:content[''] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none !overflow-visible truncate text-sm leading-tight text-white transition-all after:absolute after:-bottom-1.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-white after:transition-transform after:duration-300 peer-placeholder-shown:text-sm  peer-placeholder-shown:text-white peer-focus:text-sm peer-focus:leading-tight peer-focus:text-white peer-focus:after:scale-x-100 peer-focus:after:border-white ${hasPlaceholder ? 'leading-[4.25]' : 'peer-placeholder-shown:leading-[4.25]'}`}
 	>
 		{label} &nbsp
-		<!-- <span class={`text-mj-error text-[12px] max-w-[8px] translate-y-1 ${hasPlaceholder ? '-translate-y-4':''}`}>
+		/* <span class={`text-mj-error text-[12px] max-w-[8px] translate-y-1 ${hasPlaceholder ? '-translate-y-4':''}`}>
 			{@html star}
-		</span> -->
+		</span> **/
 		<span class="text-mj-error">*</span>
 	</div>
 
@@ -43,4 +43,46 @@
 			{error[0]}
 		</div>
 	{/if}
+</div> -->
+
+<script lang="ts">
+	import { fly } from "svelte/transition";
+
+	export let name: string;
+	export let label: string;
+	export let secondaryLabel: string | undefined = undefined;
+	export let error: string[] | undefined = undefined;
+	export let value: string;
+	export let disabled: boolean = false;
+	export let isRequired: boolean = false;
+</script>
+
+<div class="flex flex-col w-full font-editor-hand">
+	<!-- Label -->
+	<label class="text-sm text-placeholder-text" for={name}>
+		{label}
+		{#if isRequired}
+			<span class="text-mj-error">*</span>
+		{/if}
+	</label>
+
+	<!-- Input Box -->
+	<div class="relative mt-3">
+		<input
+			placeholder={secondaryLabel ? secondaryLabel : label}
+			class="h-11 w-full border border-input-border bg-white rounded-md px-4 text-black outline-none transition-all focus:border-placeholder-text disabled:bg-gray-200"
+			bind:value
+			required
+			autocomplete="off"
+			{name}
+			{disabled}
+			id={name}
+		/>
+
+		{#if error && error.length}
+			<div transition:fly={{ y: -20, duration: 300 }} class="text-xs text-error pt-2">
+				{error[0]}
+			</div>
+		{/if}
+	</div>
 </div>

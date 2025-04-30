@@ -8,20 +8,20 @@
 	import { fade, fly } from 'svelte/transition';
 
 	const title = 'save the date';
-	const day = 'wednesday';
+	const day = 'saturday';
 	// const date = '2nd of October, 2024';
 	const buttonText = 'Add To Calendar';
 
 	dayjs.extend(duration);
 
-	let weddingDay: Dayjs = dayjs('October 2, 2024');
+	let weddingDay: Dayjs = dayjs('May 24, 2025');
 	let countdowns = [
 		{ type: 'Month', value: 0 },
 		{ type: 'Day', value: 0 },
 		{ type: 'Hour', value: 0 },
 		{ type: 'Minute', value: 0 }
 	];
-	const eventCalenderLink = 'https://calendar.app.google/oKe4F6P8PWjFqfnKA';
+	const eventCalenderLink = 'https://calendar.app.google/B7UxBcUS3EnMRuWC8';
 
 	onMount(() => {
 		setInterval(function () {
@@ -65,7 +65,7 @@
 					</p>
 
 					<p class="text-sm md:!text-lg">
-						2<sup class="lowercase">nd</sup> of October, 2024
+						24<sup class="lowercase">th</sup> of May, 2025
 					</p>
 				</div>
 			</div>

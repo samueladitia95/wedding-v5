@@ -23,6 +23,7 @@ export const schemaRsvp = z
 				required_error: 'is Attending is Required'
 			})
 			.default('No'),
+		total_guests: z.number().default(0),
 		plus_one: z.string(),
 		main_dish: z.string(),
 		food_allergies: z.string(),

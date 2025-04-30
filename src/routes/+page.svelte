@@ -61,9 +61,9 @@
 <Started {data} />
 <TogetherWith {data} />
 <SaveTheDate />
-<Map {data} />
-<Details />
-<TravelGuide {data} />
+<!-- <Map {data} /> -->
+<!-- <Details /> -->
+<!-- <TravelGuide {data} /> -->
 <Attire {data} />
 <QnA {data} />
 <div class="xl:hidden">

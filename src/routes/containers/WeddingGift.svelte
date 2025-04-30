@@ -52,13 +52,13 @@
 		>
 			<p class="text-3xl/loose md:text-[40px]/loose font-ivora tracking-widest md:tracking-[0.2em]">WEDDING GIFT</p>
 			<p
-				class="font-gordita text-xs/6 md:text-sm/10 pt-8 pb-12 px-3 max-w-[380px] md:max-w-[530px] tracking-widest"
+				class="font-gordita text-xs/6 md:text-sm/10 pt-8 pb-12 px-3 max-w-[380px] md:max-w-[530px] lg:max-w-[720px] tracking-widest"
 			>
 				WE REQUIRE ONLY YOUR PRESENCE, BUT IF YOU FEEL SO MOVED TO GIVE US A GIFT, WE WOULD BE VERY
 				GRATEFUL!
 			</p>
 			<p class="font-gordita text-xl/loose pb-4 tracking-widest">JESSICA</p>
-			<p class="font-gordita text-base/loose">BCA 3431121288</p>
+			<p class="font-gordita text-base/loose">290-02102-2 POSB E-SAVINGS</p>
 		</div>
 	{/if}
 </div>
