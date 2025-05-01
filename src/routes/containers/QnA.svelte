@@ -9,11 +9,9 @@
 	const questions = [
 		{
 			question: 'WHAT SHOULD I WEAR?',
-			answer:
-				'All White – Chic & Effortless;',
+			answer: 'All White – Chic & Effortless;',
 			conditional: '',
-			conditional2:
-				'silk, and soft cottons – flowy dresses & relaxed suits. '
+			conditional2: 'silk, and soft cottons – flowy dresses & relaxed shirts. '
 		},
 		{
 			question: 'CAN I BRING A +1?',
@@ -23,7 +21,7 @@
 		{
 			question: 'SHOULD I BRING A GIFT?',
 			answer:
-				'We are thrilled to have you celebrate with us, and while gifts are not necessary, we would be grateful if you choose to honor us with cash or angpao.'
+				'We are thrilled to have you celebrate with us, and while gifts are not necessary, we would be grateful if you choose to honor us with cash or hong bao.'
 		},
 		{
 			question: 'I HAVE MORE QUESTIONS! WHO SHOULD I SPEAK TO?',

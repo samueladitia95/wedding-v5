@@ -143,10 +143,19 @@
 		</div>
 	</div>
 	<!-- Section: Menu -->
-	<div class="flex justify-center items-center text-white text-lg mt-10 xl:mt-14 text-[0.5rem]">
-		◆
-	</div>
-	<div class="mt-10 xl:mt-14 w-full flex justify-center">
-		<MenuSection {menuItems} />
-	</div>
+	{#if isShow}
+		<div
+			transition:fade={{ duration: 1500, delay: 1500 + 500 }}
+			class="flex justify-center items-center text-white text-lg mt-10 xl:mt-14 text-[0.5rem]"
+		>
+			◆
+		</div>
+
+		<div
+			transition:fade={{ duration: 1500, delay: 1500 + 500 }}
+			class="mt-10 xl:mt-14 w-full flex justify-center"
+		>
+			<MenuSection {menuItems} />
+		</div>
+	{/if}
 </div>

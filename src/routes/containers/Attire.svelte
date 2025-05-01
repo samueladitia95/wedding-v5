@@ -89,9 +89,9 @@
 				>
 					THE ATTIRE
 				</p>
-				<p class="text-base/loose tracking-wider font-gordita text-center">
+				<!-- <p class="text-base/loose tracking-wider font-gordita text-center">
 					HOLY MATRIMONY & RECEPTION
-				</p>
+				</p> -->
 				<div class="flex gap-4 md:gap-6">
 					<div class="size-8 md:size-10 border border-[#7E7E7E]/50 rounded-full bg-[#FFF]"></div>
 					<!-- <div class="size-8 md:size-10 border border-[#7E7E7E]/50 rounded-full bg-[#C49B81]"></div> -->
