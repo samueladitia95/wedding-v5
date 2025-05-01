@@ -18,7 +18,7 @@
 			condition: '',
 			condition2: '',
 			time: '12:00 PM (SGT)',
-			location: `1300 EAST COAST PARKWAY,<br />
+			location: `FICO <br /> 1300 EAST COAST PARKWAY,<br />
 						EAST COAST PARK AREA F, SINGAPORE 468996.<br />
 						(SEAFRONT ALFRESCO)`
 		}
