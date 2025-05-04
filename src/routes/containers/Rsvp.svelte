@@ -161,7 +161,7 @@
 										class="w-full text-black border-2 border-ring rounded-lg p-2"
 										bind:value={$form.total_guests}
 									>
-										<option value={0} disabled selected>--</option>
+										<option value={0} disabled selected>none</option>
 										{#each Array(guestPaxLimit) as _, i}
 											<option value={i + 1}>{i + 1}</option>
 										{/each}
