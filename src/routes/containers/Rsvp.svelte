@@ -30,7 +30,6 @@
 	};
 
 	const { form, errors, enhance, constraints } = superForm(data.form, {
-		SPA: true,
 		validationMethod: 'onblur',
 		validators: zod(schemaRsvp),
 		onUpdate: async function onUpdate({ form }) {
